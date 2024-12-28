@@ -1,17 +1,46 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+
+:root {
+    --clr-light: #f1f5f9;
+    --clr-slate400: #94a3b8;
+    --clr-slate800: #1e293b;
+    --clr-slate950: #020617;
+    --clr-primary: #3730a3;
+    --clr-secondary: #db2777;
+
+    /* primary rgb(55, 48, 163) */
+    /* secondary rgb(219, 39, 119) */
+    -moz-tab-size: 4;
+	tab-size: 4;
+
+    --size-xxs: 0.5rem;
+    --size-xs: 0.75rem;
+    --size-sm: 0.875rem;
+    --size-base: 1rem;
+    --size-lg: 1.125rem;
+    --size-xl: 1.25rem;
+    --size-2xl: 1.5rem;
+    --size-4xl: 2.25rem;
+    --size-6xl: 3.75rem;
+    --size-8xl: 6rem;
+    --size-10xl: 10rem;
+
+
+}
+
+* {
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: calc(1em + 0.5rem);
+    /* outline: 1px solid red; */
+    box-sizing: border-box;
+}
 
 html {
     scroll-behavior: smooth;
 }
 
-* {
-    font-family: 'Open Sans', sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6, .tiltwarp {
-    font-family: 'Tilt Warp', serif;
+body {
+    font-family: 'General Sans', sans-serif;
 }
 
 span {
@@ -19,7 +48,31 @@ span {
     font-weight: inherit;
 }
 
+strong {
+    color: var(--clr-primary);
+}
+
+a {
+    color: var(--clr-secondary);
+}
+
+button {
+    display: inline-block;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: inherit;
+}
+
 .custom-bg {
+    position: absolute;
+    min-height: 100vh;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.7;
+    top: 0px;
+    left: 0px;
     background-image: repeating-linear-gradient(90deg, hsla(64,83%,54%,0.05) 0px, 
     hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,
     hsla(64,83%,54%,0.05) 11px, 
@@ -36,4 +89,12 @@ span {
     hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,
     hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),
     linear-gradient(135deg, rgb(95,74,176),rgb(255,234,154));
+}
+
+img,
+picture,
+svg {
+    display: block;
+    max-width: 100%;
+    user-select: none;
 }
