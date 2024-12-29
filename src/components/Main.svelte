@@ -1,5 +1,32 @@
 <script>
-    import './styles/hero.css';
+    import './styles/main.css';
+    
+
+    let skill_icons = [
+        {title: 'Python', icon: 'fa-brands fa-python'},
+        {title: 'Javascript', icon: 'fa-brands fa-js-square'},
+        {title: 'Git', icon: 'fa-brands fa-git-alt'},
+        {title: 'React', icon: 'fa-brands fa-react'},
+        {title: 'HTML', icon: 'fa-brands fa-html5'},
+        {title: 'CSS', icon: 'fa-brands fa-css3-alt'},
+        {title: 'R', icon: 'fa-brands fa-r-project'},
+        {title: 'Java', icon: 'fa-brands fa-java'},
+        ]
+
+    let benefits = [
+        {
+            name: "a driven student",
+            desc: "I have taken a range of CS courses from Artificial Intelligence, Machine Learning, and Computer Systems to Data Science and Data Mining."
+        },
+        {
+            name: "a curious, knowledge-driven learner",
+            desc: "I am always eager to learn new technologies and tools. I have experience with Python, Java, JavaScript, HTML/CSS, and SQL."
+        },
+        {
+            name: "an excellent communicator",
+            desc: "I believe communication is key, especially in the workplace. I have experience working in teams and presenting my work. blah blah"
+        }
+    ]
 </script>
 
 <main>
@@ -44,4 +71,33 @@
             </div>
         </div>
     </section>
+
+    <section class="about container">
+        <div class="about-skills">
+            <h2 class="about-header">Skills</h2>
+            <div class="about-skills-icons">
+                {#each skill_icons as skill}
+                    <i class={skill.icon}>
+                        <span class="tooltiptext">{skill.title}</span>
+                    </i>
+                {/each}
+            </div>
+        </div>
+        <div class="about-content">
+            <h2 class="about-header">About Me</h2>
+            <p class="about-subtitle">I am...</p>
+            <div class="about-desc">
+                {#each benefits as benefit, index}
+                <div class="about-desc-item">
+                    <h1 class="about-index">0{index+1}</h1>
+                    <div class="about-desc-content">
+                        <h3 class="about-desc-title">{benefit.name}</h3>
+                        <p>{benefit.desc}</p>
+                    </div>
+                </div>
+            {/each}
+            </div>
+        </div>
+    </section>
+
 </main>

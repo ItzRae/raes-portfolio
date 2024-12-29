@@ -1,3 +1,4 @@
+/* HERO ---------------------------------------------*/
 
 .hero-content {
     text-align: center;
@@ -26,8 +27,9 @@
 .hero-img {
     display: inline-block;
     border-radius: 50%;
-    width: 10rem;
-    height: 9rem;
+    box-shadow: -10px 5px var(--clr-primary);
+    width: 9rem;
+    height: 8rem;
 }
 
 .hero-img-container {
@@ -47,11 +49,115 @@
     width: 2rem;
     height: 2rem;
     fill: var(--clr-slate800);
+    transition: fill 0.3s;
 }
 
 .hero-btn:hover{
     fill: var(--clr-primary);
 }
+
+/* ABOUT ------------------------------------------------*/
+
+.about {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 3rem;
+}
+
+.about-header {
+    text-align: center;
+}
+
+.about-skills {
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.about-skills-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 10rem);
+    justify-content: flex-end;
+    align-content: center;
+    gap: 2rem;
+    border: 1px solid red;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-desc-item {
+    display: flex;
+    gap: 1rem;
+    
+}
+
+.about-index {
+    font-size: var(--size-4xl);
+    flex-shrink: 0;
+    color: var(--clr-primary);
+}
+
+
+.about-desc{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 50rem;
+    width: 100%;
+    margin: auto;
+}
+
+.about-desc-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.about-desc-title {
+    font-size: var(--size-2xl);
+}
+
+.about-subtitle {
+    font-size: var(--size-xl);
+    font-weight: 600;
+    color: var(--clr-slate950);
+    text-align: center;
+}
+
+
+.fa-brands {
+    position: relative;
+    display: inline-block;
+    font-size: var(--size-6xl);
+    overflow-y: hidden;
+    animation: float 2.5s linear infinite;
+}
+
+.tooltiptext {
+    font-size: var(--size-xs);
+}
+
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50%, 65% {
+        transform: translateY(-0.25rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* MEDIA SIZES ------------------------------*/
 
 /* xs */
 @media (min-width: 475px) {
@@ -70,8 +176,8 @@
     }
     
     .hero-img {
-        width: 13rem;
-        height: 12rem;
+        width: 10rem;
+        height: 9rem;
     }
     
     .hero-btns {
@@ -79,8 +185,8 @@
     }
     
     .hero-btn {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2.25rem;
+        height: 2.25rem;
     }
 }
 
@@ -184,9 +290,6 @@
         align-items: center;
     }
     
-    .hero-btns {
-        gap: 2rem;
-    }
 }
 
 /* 2xl */

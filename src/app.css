@@ -27,12 +27,14 @@
 
 }
 
+
 * {
     margin: 0px;
     font-family: 'Open Sans', sans-serif;
     line-height: calc(1em + 0.5rem);
     /* outline: 1px solid red; */
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 html {
@@ -41,12 +43,15 @@ html {
 
 body {
     font-family: 'General Sans', sans-serif;
+    min-height: 100%;
 }
 
 span {
     font-family: inherit;
     font-weight: inherit;
 }
+
+
 
 strong {
     color: var(--clr-primary);
@@ -66,21 +71,24 @@ button {
 }
 
 .particles-bg {
-    position: absolute;
-    height: 100vh;
+    position: fixed;
+    height: auto;
+    min-height: 100vh;
     width: 100%;
     z-index: -1;
     top: 0px;
     left: 0px;
-    background-color: #c2bffa;
+    background-color: #d9d7f7;
+    border: 1px solid blue;
+
 }
 
 #particles-js{
     position: absolute;
     inset: 0px;
     width: 100%;
-    height: 100%;
-    
+    min-height: 100vh;
+    border: 1px solid red;
 }
 
 img,
