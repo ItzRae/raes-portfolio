@@ -13,7 +13,7 @@
     <!-- <h1>
         <b>Rachel Lin</b>
     </h1> -->
-    <h3><strong>Rachel's</strong> Portfolio</h3>
+    <h3 class="header-cap"><strong>Rachel's</strong> Portfolio</h3>
     <nav>
         <ul class="header-menu">
             {#each tabs as tab, index}

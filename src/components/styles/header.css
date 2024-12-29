@@ -4,11 +4,11 @@
     align-items: center;
     padding-top: 2rem;
     padding-bottom: 2rem;
-    border: 1px solid red
 }
 
 .header-cap {
     font-weight: bold;
+    font-size: var(--size-s);
     letter-spacing: -0.05em;
 }
 
@@ -41,7 +41,7 @@
     }
     
     .header-link {
-        font-size: var(--size-xs);
+        font-size: var(--size-m);
         text-decoration: none;
         font-weight: 600;
         color: var(--clr-slate950);
@@ -77,10 +77,26 @@
     .header-resume {
         font-size: var(--size-sm);
     }
+
+    .header-cap {
+        font-size: var(--size-lg);
+    }
 }
 
 /* xl */
-/* @media (min-width: 1280px) {} */
+@media (min-width: 1280px) {
+    .header-link {
+        font-size: var(--size-m);
+    }
+    
+    .header-resume {
+        font-size: var(--size-m);
+    }
+
+    .header-cap {
+        font-size: var(--size-xl);
+    }
+}
 
 /* 2xl */
 /* @media (min-width: 1536px) {} */
