@@ -1,0 +1,147 @@
+
+.hero-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.hero-title {
+    color: var(--clr-slate950);
+    text-transform: uppercase;
+    font-size: var(--size-4xl);
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+}
+
+.hero-desc {
+    max-width: 60ch;
+    font-size: var(--size-sm);
+    color: var(--clr-slate800);
+}
+
+.hero-img {
+    display: inline-block;
+    border-radius: 50%;
+    width: 10rem;
+    height: 9rem;
+}
+
+.hero-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hero-btn {
+    width: 2rem;
+    height: 2rem;
+    fill: var(--clr-slate800);
+}
+
+.hero-btn:hover{
+    fill: var(--clr-primary);
+}
+
+/* xs */
+@media (min-width: 475px) {
+
+    .hero {
+        gap: 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: var(--size-5xl);
+        line-height: 1;
+    }
+    
+    .hero-desc {
+        font-size: var(--size-base);
+    }
+    
+    .hero-img {
+        width: 13rem;
+        height: 12rem;
+    }
+    
+    .hero-btns {
+        gap: 2rem;
+    }
+    
+    .hero-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+/* sm */
+/* @media (min-width: 640px) {} */
+
+/* m */
+/* @media (min-width: 768px) {} */
+
+/* lg */
+@media (min-width: 1024px) {
+    .hero {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        margin-top: 1rem;
+        gap: 4rem;
+    }
+    
+    .hero-content {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+    
+    .hero-title {
+        color: var(--clr-slate950);
+        font-size: var(--size-6xl);
+        letter-spacing: -0.05em;
+        line-height: 0.9;
+    }
+    
+    .hero-desc {
+        font-size: var(--size-m);
+        line-height: 1.2;
+    }
+    
+    .hero-img {
+        border-radius: 0;
+        width: 22rem;
+        height: 19rem;
+        box-shadow: 20px -12px var(--clr-primary);
+    }
+    
+    .hero-img-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .hero-btns {
+        gap: 2rem;
+    }
+    
+}
+
+/* xl */
+/* @media (min-width: 1280px) {} */
+
+/* 2xl */
+/* @media (min-width: 1536px) {} */

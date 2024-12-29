@@ -20,8 +20,8 @@
     --size-xl: 1.25rem;
     --size-2xl: 1.5rem;
     --size-4xl: 2.25rem;
+    --size-5xl: 3rem;
     --size-6xl: 3.75rem;
-    --size-8xl: 6rem;
     --size-10xl: 10rem;
 
 
@@ -65,30 +65,22 @@ button {
     color: inherit;
 }
 
-.custom-bg {
+.particles-bg {
     position: absolute;
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
     z-index: -1;
-    opacity: 0.7;
     top: 0px;
     left: 0px;
-    background-image: repeating-linear-gradient(90deg, hsla(64,83%,54%,0.05) 0px, 
-    hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,
-    hsla(64,83%,54%,0.05) 11px, 
-    hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),
-    repeating-linear-gradient(135deg, hsla(64,83%,54%,0.05) 0px, 
-    hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,
-    hsla(64,83%,54%,0.05) 11px, 
-    hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),
-    repeating-linear-gradient(45deg, hsla(64,83%,54%,0.05) 0px, 
-    hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,
-    hsla(64,83%,54%,0.05) 11px, 
-    hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),
-    repeating-linear-gradient(180deg, hsla(64,83%,54%,0.05) 0px, 
-    hsla(64,83%,54%,0.05) 1px,transparent 1px, transparent 11px,
-    hsla(64,83%,54%,0.05) 11px, hsla(64,83%,54%,0.05) 12px,transparent 12px, transparent 32px),
-    linear-gradient(135deg, rgb(95,74,176),rgb(255,234,154));
+    background-color: #c2bffa;
+}
+
+#particles-js{
+    position: absolute;
+    inset: 0px;
+    width: 100%;
+    height: 100%;
+    
 }
 
 img,

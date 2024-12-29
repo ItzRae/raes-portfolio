@@ -1,6 +1,6 @@
 <script>
     // export let y;
-    import './header.css';
+    import './styles/header.css';
 
     let tabs = [
         {name: 'About Me', link: '#about'},
@@ -13,6 +13,7 @@
     <!-- <h1>
         <b>Rachel Lin</b>
     </h1> -->
+    <h3><strong>Rachel's</strong> Portfolio</h3>
     <nav>
         <ul class="header-menu">
             {#each tabs as tab, index}
@@ -28,6 +29,7 @@
             </li>
             <!-- svelte-ignore a11y_consider_explicit_label -->
         </ul>
+        <!-- svelte-ignore a11y_consider_explicit_label -->
         <button class="header-bars">
             <svg 
             xmlns="http://www.w3.org/2000/svg" 
