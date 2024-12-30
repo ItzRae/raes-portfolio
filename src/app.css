@@ -22,6 +22,9 @@
     --size-4xl: 2.25rem;
     --size-5xl: 3rem;
     --size-6xl: 3.75rem;
+    --size-7xl: 4.5rem;
+    --size-8xl: 6rem;
+    --size-9xl: 8rem;
     --size-10xl: 10rem;
 
 
@@ -30,11 +33,10 @@
 
 * {
     margin: 0px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'General Sans', sans-serif;
     line-height: calc(1em + 0.5rem);
     /* outline: 1px solid red; */
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 html {
@@ -42,7 +44,6 @@ html {
 }
 
 body {
-    font-family: 'General Sans', sans-serif;
     min-height: 100%;
 }
 
