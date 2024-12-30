@@ -10,7 +10,7 @@
     border: 2px solid var(--clr-primary);
     border-radius: 2rem;
     gap: 2rem;
-    max-width: fit-content;
+    max-width: max-content;
     cursor: pointer;
     padding: 3rem 2rem;
     box-shadow: 0 0 5px var(--clr-primary);

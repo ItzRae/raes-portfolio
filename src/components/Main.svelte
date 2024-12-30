@@ -1,6 +1,17 @@
 <script>
+// @ts-nocheck
+
     import './styles/main.css';
     import ProjectCard from './ProjectCard.svelte';
+
+    function scrollIntoView({ target }) {
+		const el = document.querySelector(target.getAttribute('href'));
+		if (!el) return;
+    el.scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+
 
     /* SKILLS */
     let skill_icons = [
@@ -34,7 +45,7 @@
     let projects = [
         {
             name: "Formula 1 Data Science Blog",
-            desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            desc: "Developed an interactive blog analyzing Formula 1 datasets with spatial visualizations (Leaflet map), network graphs, and text analysis (web scraping) via word clouds.",
             img: "src/images/project1.png",
             github_link: "https://github.com/stat231-f24/blog01-f1-fanatics",
             demo_link: "https://stat231-f24.github.io/blog01-f1-fanatics/"
@@ -97,7 +108,7 @@
 
                 </a>
             </div>
-            <a class="hero-btn btn">↓ See Projects ↓</a>
+            <a class="hero-btn btn" href="#projects" on:click|preventDefault={scrollIntoView}>↓ See Projects ↓</a>
         </div>
     </section>
 
@@ -127,7 +138,7 @@
             </div>
         </div>
     </section>
-    <section class="projects container">
+    <section id="projects" class="projects container">
         <h1>Projects</h1>
         <div class="projects-box">
             <ProjectCard card={projects[0]}></ProjectCard>
