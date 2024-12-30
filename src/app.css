@@ -6,6 +6,7 @@
     --clr-slate950: #020617;
     --clr-primary: #3730a3;
     --clr-secondary: #db2777;
+    --clr-bg: #d9d7f7;
 
     /* primary rgb(55, 48, 163) */
     /* secondary rgb(219, 39, 119) */
@@ -19,6 +20,7 @@
     --size-lg: 1.125rem;
     --size-xl: 1.25rem;
     --size-2xl: 1.5rem;
+    --size-3xl: 1.75rem;
     --size-4xl: 2.25rem;
     --size-5xl: 3rem;
     --size-6xl: 3.75rem;
@@ -79,8 +81,7 @@ button {
     z-index: -1;
     top: 0px;
     left: 0px;
-    background-color: #d9d7f7;
-    border: 1px solid blue;
+    background-color: var(--clr-bg);
 
 }
 
@@ -89,7 +90,6 @@ button {
     inset: 0px;
     width: 100%;
     min-height: 100vh;
-    border: 1px solid red;
 }
 
 img,

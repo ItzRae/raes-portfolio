@@ -80,7 +80,7 @@
     flex-direction: column-reverse;
     gap: 3rem;
     margin-top: 2rem;
-
+    
 }
 
 
@@ -143,11 +143,11 @@
     color: var(--clr-slate950);
 }
 
-.about-header, .about-subtitle{
+.about h1, .about-subtitle{
     text-align: center;
 }
 
-.fa-brands {
+.about-skills-icons i {
     position: relative;
     font-size: var(--size-5xl);
     overflow-y: hidden;
@@ -157,7 +157,7 @@
     text-align: center;
 }
 
-.fa-brands:hover {
+.about-skills-icons i:hover {
     color: var(--clr-secondary);
 }
 
@@ -173,6 +173,29 @@
     100% {
         transform: translateY(0);
     }
+}
+
+/* ============= PROJECT =============*/
+
+.projects {
+    margin-top: 10rem;
+}
+
+.projects h1 {
+    text-align: center;
+    font-size: var(--size-3xl);
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.projects-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    place-items: center;
+    gap: 3rem;
+    row-gap: 5rem;
+    align-items: stretch;
+    margin-bottom: 8rem;
 }
 
 /* MEDIA SIZES -----------------------------------------*/
@@ -229,14 +252,14 @@
 
 /* sm */
 @media (min-width: 640px) {
-    .fa-brands {
+    .about-skills-icons i {
         font-size: var(--size-6xl);
     }
 }
 
 /* m */
 @media (min-width: 768px) {
-    .fa-brands {
+    .about-skills-icons i {
         font-size: var(--size-7xl);
     }
 }
@@ -249,7 +272,7 @@
         flex-direction: row-reverse;
         justify-content: center;
         margin-top: 4rem;
-        gap: 4rem;
+        gap: 2rem;
     }
     
     .hero-content {
@@ -269,8 +292,9 @@
     }
     
     .hero-desc {
-        font-size: var(--size-lg);
+        font-size: var(--size-xl);
         line-height: 1.2;
+        max-width: 50ch;
     }
     
     .hero-img {
@@ -335,7 +359,7 @@
         gap: 4rem;
     }
 
-    .about-header, .about-subtitle{
+    .about h1, .about-subtitle{
         text-align: left;
     }
     
@@ -347,7 +371,7 @@
         display: flex;
         flex-direction: row-reverse;
         justify-content: center;
-        margin-top: 4rem;
+        margin-top: 6rem;
         gap: 3em;
     }
     
@@ -384,6 +408,21 @@
     .hero-img {
         width: 27rem;
         height: 24rem;
+    }
+
+    /* ======ABOUT========*/
+    .about {
+        margin-top: 14rem;
+        gap: 10rem;
+    }
+
+    .about-skills-icons {
+        gap: 5rem;
+    }
+
+    .about h1 {
+        font-size: var(--size-3xl);
+        margin-bottom: 2rem;
     }
     
 }

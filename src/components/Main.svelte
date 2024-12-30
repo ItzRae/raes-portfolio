@@ -1,7 +1,8 @@
 <script>
     import './styles/main.css';
-    
+    import ProjectCard from './ProjectCard.svelte';
 
+    /* SKILLS */
     let skill_icons = [
         {title: 'Python', icon: 'fa-brands fa-python'},
         {title: 'Javascript', icon: 'fa-brands fa-js-square'},
@@ -13,6 +14,7 @@
         {title: 'Java', icon: 'fa-brands fa-java'},
         ]
 
+    /* ABOUT */      
     let benefits = [
         {
             name: "a driven student",
@@ -27,12 +29,38 @@
             desc: "I believe communication is key, especially in the workplace. I have experience working in teams and presenting my work. blah blah"
         }
     ]
+
+    /* PROJECTS */
+    let projects = [
+        {
+            name: "Formula 1 Data Science Blog",
+            desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            img: "src/images/project1.png",
+            github_link: "",
+            demo_link: ""
+        },
+        {
+            name: "MammothEDU",
+            desc: "Leveraging generative AI for increased curriculum flexibility in the educational sector",
+            img: "src/images/mammothedu.png",
+            github_link: "https://github.com/MammothEdu/MammothEdu.github.io",
+            demo_link: "https://mammothedu.github.io/"
+        },
+        {
+            name: "AlgoVisualizer",
+            desc: "A react app that visualizes sorting algorithms with real-time animations and an educational menu for users to learn about the basics, runtime, and pseudocode of each algorithm.",
+            img: "src/images/algovisualizer.png",
+            github_link: "https://github.com/ItzRae/algo-visualizer",
+            demo_link: "https://itzrae.github.io/algo-visualizer/"
+        }
+        ]
+
 </script>
 
 <main>
     <section class="hero container">
         <div class="hero-img-container">
-            <img class="hero-img" src="src/heropicture.jpg" alt=""/>
+            <img class="hero-img" src="src/images/heropicture.jpg" alt=""/>
         </div>
         <div class='hero-content'>
             <h1 class="hero-title">HI, I'M RACHEL 👋🏼</h1>
@@ -75,7 +103,7 @@
 
     <section class="about container">
         <div class="about-skills">
-            <h2 class="about-header">Skills</h2>
+            <h1>Skills</h1>
             <div class="about-skills-icons">
                 {#each skill_icons as skill}
                     <i class={skill.icon} title={skill.title}>
@@ -84,7 +112,7 @@
             </div>
         </div>
         <div class="about-content">
-            <h2 class="about-header">About Me</h2>
+            <h1>About Me</h1>
             <p class="about-subtitle">I am...</p>
             <div class="about-desc">
                 {#each benefits as benefit, index}
@@ -99,9 +127,13 @@
             </div>
         </div>
     </section>
-
-    <section>
-        
+    <section class="projects container">
+        <h1>Projects</h1>
+        <div class="projects-box">
+            <ProjectCard card={projects[0]}></ProjectCard>
+            <ProjectCard card={projects[1]}></ProjectCard>
+            <ProjectCard card={projects[2]}></ProjectCard>
+        </div>
     </section>
 
 </main>
