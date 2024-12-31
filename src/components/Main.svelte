@@ -47,21 +47,21 @@
         {
             name: "Formula 1 Data Science Blog",
             desc: "Developed an interactive blog analyzing Formula 1 datasets with spatial visualizations (Leaflet map), network graphs, and text analysis (web scraping) via word clouds.",
-            img: "../src/files/project1.png",
+            img: "static/files/project1.png",
             github_link: "https://github.com/stat231-f24/blog01-f1-fanatics",
             demo_link: "https://stat231-f24.github.io/blog01-f1-fanatics/"
         },
         {
             name: "MammothEDU",
             desc: "MAMU’s mission is to create an education-catered web-app that offers increased curriculum flexibility, enhancing accessibility for students and educators. Used React, OpenAI API, and Tailwind for UI.",
-            img: "../src/files/mammothedu.png",
+            img: "static/files/mammothedu.png",
             github_link: "https://github.com/MammothEdu/MammothEdu.github.io",
             demo_link: "https://mammothedu.github.io/"
         },
         {
             name: "AlgoVisualizer",
             desc: "A react app that visualizes sorting algorithms with real-time animations and an educational menu for users to learn about the basics, runtime, and pseudocode of each algorithm.",
-            img: "src/files/algovisualizer.png",
+            img: "static/files/algovisualizer.png",
             github_link: "https://github.com/ItzRae/algo-visualizer",
             demo_link: "https://itzrae.github.io/algo-visualizer/"
         }
@@ -72,7 +72,7 @@
 <main>
     <section id="hero" class="hero container">
         <div class="hero-img-container">
-            <img class="hero-img" src="src/files/heropicture.jpg" alt=""/>
+            <img class="hero-img" src="static/files/heropicture.jpg" alt=""/>
         </div>
         <div class='hero-content'>
             <h1 class="hero-title">HI, I'M RACHEL 👋🏼</h1>
