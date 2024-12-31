@@ -69,7 +69,7 @@
 </script>
 
 <main>
-    <section class="hero container">
+    <section id="hero" class="hero container">
         <div class="hero-img-container">
             <img class="hero-img" src="src/images/heropicture.jpg" alt=""/>
         </div>
@@ -112,7 +112,7 @@
         </div>
     </section>
 
-    <section class="about container">
+    <section id="about" class="about container">
         <div class="about-skills">
             <h1>Skills</h1>
             <div class="about-skills-icons">
@@ -146,5 +146,7 @@
             <ProjectCard card={projects[2]}></ProjectCard>
         </div>
     </section>
-
+    <footer class="footer container section">
+        <h3 class="footer-title">~ Rachel Lin ~</h3>
+    </footer>
 </main>

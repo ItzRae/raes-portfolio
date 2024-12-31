@@ -1,12 +1,25 @@
 <script>
     // export let y;
     import './styles/header.css';
+    import './styles/mobile-nav.css';
+    import { onMount } from 'svelte';
 
     let tabs = [
         {name: 'About Me', link: '#about'},
         {name: 'Projects', link: '#projects'}
         // {name: 'Resume', id: '#resume'}
     ]
+
+    let isMobileNavOpen = false;
+
+    function toggleNav() {
+        isMobileNavOpen = !isMobileNavOpen;
+    }
+
+    function closeNav() {
+        isMobileNavOpen = false;
+    }
+
 </script>
 
 <header class="header container">
@@ -16,7 +29,7 @@
     <h3 class="header-cap"><strong>Rachel's</strong> Portfolio</h3>
     <nav>
         <ul class="header-menu">
-            {#each tabs as tab, index}
+            {#each tabs as tab}
                 <li>
                     <a href={tab.link} class="header-link">
                         {tab.name}
@@ -30,7 +43,7 @@
             <!-- svelte-ignore a11y_consider_explicit_label -->
         </ul>
         <!-- svelte-ignore a11y_consider_explicit_label -->
-        <button class="header-bars">
+        <button class="header-bars" on:click={toggleNav}>
             <svg 
             xmlns="http://www.w3.org/2000/svg" 
             viewBox="0 0 24 24" 
@@ -43,3 +56,20 @@
         </button>
     </nav>
 </header>
+<!-- Mobile Navigation -->
+<div class="mobile-nav" style="display: {isMobileNavOpen ? 'flex' : 'none'}">
+    <nav>
+        <ul class="mobile-nav-menu">
+            {#each tabs as tab}
+                <li>
+                    <a href="{tab.link}" class="mobile-nav-link" on:click={closeNav}>{tab.name}</a>
+                </li>
+            {/each}
+            <li class="mobile-nav-link-line"></li>
+            <li>
+                <a class="mobile-nav-btn btn" href="#">Resume</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<!-- End of Mobile Navigation -->
