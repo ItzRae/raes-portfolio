@@ -14,7 +14,6 @@
             </a>
             <a href="{card.demo_link}">
                 <i class="fa-solid fa-globe"></i>
-
             </a>
         </div>
     </div>

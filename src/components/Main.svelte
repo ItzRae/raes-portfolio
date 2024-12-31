@@ -46,14 +46,14 @@
         {
             name: "Formula 1 Data Science Blog",
             desc: "Developed an interactive blog analyzing Formula 1 datasets with spatial visualizations (Leaflet map), network graphs, and text analysis (web scraping) via word clouds.",
-            img: "src/files/project1.png",
+            img: "../src/files/project1.png",
             github_link: "https://github.com/stat231-f24/blog01-f1-fanatics",
             demo_link: "https://stat231-f24.github.io/blog01-f1-fanatics/"
         },
         {
             name: "MammothEDU",
             desc: "MAMU’s mission is to create an education-catered web-app that offers increased curriculum flexibility, enhancing accessibility for students and educators. Used React, OpenAI API, and Tailwind for UI.",
-            img: "src/files/mammothedu.png",
+            img: "../src/files/mammothedu.png",
             github_link: "https://github.com/MammothEdu/MammothEdu.github.io",
             demo_link: "https://mammothedu.github.io/"
         },
