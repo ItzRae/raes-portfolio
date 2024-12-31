@@ -14,7 +14,7 @@ const config = {
             // Define the output directory for GitHub Pages
             pages: 'build',
             assets: 'build',
-            fallback: 'app.html',
+            fallback: 'index.html',
         }),
         paths: {
             base: process.env.NODE_ENV === 'production' ? '/raes portfolio' : '',
