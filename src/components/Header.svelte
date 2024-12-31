@@ -38,7 +38,7 @@
             {/each}
             <li class="header-line"></li>
             <li>
-                <a class="header-resume btn" href="src/files/resume.pdf" target="_blank">Resume</a>
+                <a class="header-resume btn" href="/files/resume.pdf" target="_blank">Resume</a>
 
             </li>
             <!-- svelte-ignore a11y_consider_explicit_label -->
@@ -68,7 +68,7 @@
             {/each}
             <li class="mobile-nav-link-line"></li>
             <li>
-                <a class="mobile-nav-btn btn" href="src/files/resume.pdf" target="_blank">Resume</a>
+                <a class="mobile-nav-btn btn" href="/files/resume.pdf" target="_blank">Resume</a>
             </li>
         </ul>
     </nav>
