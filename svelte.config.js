@@ -17,7 +17,7 @@ const config = {
             fallback: 'app.html',
         }),
         paths: {
-            base: dev ? '' : '/raes-portfolio', // Replace 'your-repo-name' with the repository name
+            base: process.env.NODE_ENV === 'production' ? '/raes portfolio' : '',
         },
         appDir: 'internal',
     }

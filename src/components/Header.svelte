@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
     // export let y;
     import './styles/header.css';
     import './styles/mobile-nav.css';
-    import { onMount } from 'svelte';
+
 
     let tabs = [
         {name: 'About Me', link: '#about'},

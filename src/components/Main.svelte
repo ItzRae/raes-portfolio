@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
 // @ts-nocheck
 
     import './styles/main.css';
     import ProjectCard from './ProjectCard.svelte';
+    import { base } from '$app/paths';
 
     function scrollIntoView({ target }) {
 		const el = document.querySelector(target.getAttribute('href'));
