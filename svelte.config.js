@@ -10,16 +10,7 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-        adapter: adapter({
-            // Define the output directory for GitHub Pages
-            pages: 'build',
-            assets: 'build',
-            fallback: 'index.html',
-        }),
-        paths: {
-            base: process.env.NODE_ENV === 'production' ? '/raes portfolio' : '',
-        },
-        appDir: 'internal',
+        adapter: adapter(),
     }
 };
 
