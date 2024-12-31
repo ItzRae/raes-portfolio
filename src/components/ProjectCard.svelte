@@ -11,10 +11,10 @@
         <h3>{card.name}</h3>
         <p>{card.desc}</p>
         <div class="project-links">
-            <a href="{card.github_link}">
-                <i class="fa-brands fa-github"></i>
+            <a href="{card.github_link}" aria-label="Github"> 
+                <i class="fa-brands fa-github"> </i>
             </a>
-            <a href="{card.demo_link}">
+            <a href="{card.demo_link}" aria-label="Demo">
                 <i class="fa-solid fa-globe"></i>
             </a>
         </div>
