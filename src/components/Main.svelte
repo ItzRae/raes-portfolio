@@ -29,15 +29,15 @@
     let benefits = [
         {
             name: "a driven student",
-            desc: "I have taken a range of CS courses from Artificial Intelligence, Machine Learning, and Computer Systems to Data Science and Data Mining."
+            desc: `I have taken a range of CS courses from <a>Artificial Intelligence, Machine Learning</a>, and <a>Computer Systems</a> to <a>Data Science</a> and <a>Data Mining</a>. These classes have taught me how to break down complex problems and approach them with logical, creative solutions.`
         },
         {
             name: "a curious, knowledge-driven learner",
-            desc: "I am always eager to learn new technologies and tools. I have experience with Python, Java, JavaScript, HTML/CSS, and SQL."
+            desc: "I’m passionate about exploring new technologies and pushing myself to learn tools that expand my skills. I have experience with <a>Python, Java, JavaScript, HTML/CSS, Svelte, and SQL</a>. I’m excited to keep growing and discovering new ways to apply what I’ve learned."
         },
         {
             name: "an excellent communicator",
-            desc: "I believe communication is key, especially in the workplace. I have experience working in teams and presenting my work. blah blah"
+            desc: "I believe <a>communication is key</a>, especially in the workplace. Whether it’s explaining technical ideas in a way that’s easy to understand, presenting my work to a group, or collaborating on projects, I strive to create an <a>open and productive environment</a>. I’m still growing in this area, but I’ve found that being a good communicator makes a big difference in team success."
         }
     ]
 
@@ -46,21 +46,21 @@
         {
             name: "Formula 1 Data Science Blog",
             desc: "Developed an interactive blog analyzing Formula 1 datasets with spatial visualizations (Leaflet map), network graphs, and text analysis (web scraping) via word clouds.",
-            img: "src/images/project1.png",
+            img: "src/files/project1.png",
             github_link: "https://github.com/stat231-f24/blog01-f1-fanatics",
             demo_link: "https://stat231-f24.github.io/blog01-f1-fanatics/"
         },
         {
             name: "MammothEDU",
             desc: "MAMU’s mission is to create an education-catered web-app that offers increased curriculum flexibility, enhancing accessibility for students and educators. Used React, OpenAI API, and Tailwind for UI.",
-            img: "src/images/mammothedu.png",
+            img: "src/files/mammothedu.png",
             github_link: "https://github.com/MammothEdu/MammothEdu.github.io",
             demo_link: "https://mammothedu.github.io/"
         },
         {
             name: "AlgoVisualizer",
             desc: "A react app that visualizes sorting algorithms with real-time animations and an educational menu for users to learn about the basics, runtime, and pseudocode of each algorithm.",
-            img: "src/images/algovisualizer.png",
+            img: "src/files/algovisualizer.png",
             github_link: "https://github.com/ItzRae/algo-visualizer",
             demo_link: "https://itzrae.github.io/algo-visualizer/"
         }
@@ -71,7 +71,7 @@
 <main>
     <section id="hero" class="hero container">
         <div class="hero-img-container">
-            <img class="hero-img" src="src/images/heropicture.jpg" alt=""/>
+            <img class="hero-img" src="src/files/heropicture.jpg" alt=""/>
         </div>
         <div class='hero-content'>
             <h1 class="hero-title">HI, I'M RACHEL 👋🏼</h1>
@@ -81,7 +81,7 @@
                 web development</strong>, web scraping, and artificial intelligence.
             </p>
             <div class="hero-btns">
-                <a href="#" class="hero-icon">    
+                <a href="https://github.com/ItzRae" class="hero-icon">    
                     <svg
                     role="img" 
                     viewBox="0 0 24 24" 
@@ -131,7 +131,7 @@
                     <h1 class="about-index">0{index+1}</h1>
                     <div class="about-desc-content">
                         <h3 class="about-desc-title">{benefit.name}</h3>
-                        <p class="about-desc-text">{benefit.desc}</p>
+                        <p class="about-desc-text">{@html benefit.desc}</p>
                     </div>
                 </div>
             {/each}

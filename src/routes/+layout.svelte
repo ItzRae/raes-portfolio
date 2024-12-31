@@ -1,6 +1,7 @@
 <script lang="ts">
-	import '../app.css';
-	import '../utils.css'; 
+	import '../components/styles/app.css';
+
+	import '../components/styles/utils.css'; 
 	import Header from '../components/Header.svelte';
 	import Main from '../components/Main.svelte';
 	// let { children } = $props();
