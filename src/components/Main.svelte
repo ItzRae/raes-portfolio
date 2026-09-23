@@ -52,13 +52,6 @@
 
   const projects = [
     {
-      name: 'Florida Landfall Detector',
-      desc: 'A Streamlit web app for detecting storm landfalls in Florida.',
-      tags: ['Python', 'Streamlit'],
-      demo_link: 'https://fl-landfall-detector.streamlit.app/',
-      visual: 'landfall'
-    },
-    {
       name: 'anti-brainrot',
       desc: 'A macOS desktop app that uses your webcam and a local CV model to detect when you pick up your phone — then calls you out Gen-Z-style in real time. 100% local processing.',
       tags: ['Computer Vision', 'macOS', 'Python'],
@@ -67,7 +60,15 @@
       featured: true,
       visual: 'anti-brainrot'
     },
-        {
+    {
+      name: 'Florida Landfall Detector',
+      desc: 'A Streamlit web app for detecting storm landfalls in Florida.',
+      tags: ['Python', 'Streamlit'],
+      demo_link: 'https://fl-landfall-detector.streamlit.app/',
+      featured: true,
+      visual: 'landfall'
+    },
+    {
       name: 'Photobooth+',
       desc: 'Digital photobooth web app where users can capture live photos, choose strip layouts, preview results instantly, and download polished photostrips.',
       tags: ['React', 'CSS Modules', 'Webcam API'],
@@ -99,6 +100,13 @@
       demo_link: 'https://mammothedu.github.io/',
       github_link: 'https://github.com/MammothEdu/MammothEdu.github.io',
       visual: 'mammoth'
+    },
+    {
+      name: 'UGC Portfolio',
+      desc: 'My personal UGC portfolio, designed and built by me using TypeScript. My content creation work gives me client-facing experience, from understanding brand needs to communicating ideas and delivering content.',
+      tags: ['TypeScript', 'Web Design', 'UGC'],
+      demo_link: 'https://rachel-ugc.vercel.app/',
+      visual: 'ugc'
     },
   ];
 
@@ -321,6 +329,13 @@
                     <div class="visual-emoji" aria-hidden="true">🌀</div>
                     <div class="visual-title">Florida Landfall Detector</div>
                     <div class="visual-subtitle">Storm landfalls · Florida</div>
+                  </div>
+                </div>
+              {:else if project.visual === 'ugc'}
+                <div class="visual visual-ugc">
+                  <div class="visual-center">
+                    <div class="visual-wordmark">Rachel / UGC</div>
+                    <div class="visual-subtitle">Content creator · Built by me</div>
                   </div>
                 </div>
               {:else if project.visual === 'mammoth'}

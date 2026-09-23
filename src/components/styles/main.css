@@ -133,6 +133,8 @@
   .visual-emoji { font-size: 3.5rem; margin-bottom: 0.75rem; }
   .visual-title { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; }
   .visual-subtitle { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; color: var(--muted); letter-spacing: 0.1em; margin-top: 0.35rem; text-transform: uppercase; }
+  .visual-ugc { background: radial-gradient(ellipse at 50% 50%, rgba(244,114,182,0.15) 0%, transparent 70%), #140c11; }
+  .visual-ugc .visual-wordmark { color: #f9a8d4; }
   .visual-mammoth { background: radial-gradient(ellipse at 60% 40%, rgba(79,70,229,0.15) 0%, transparent 70%), #0f0f1a; }
   .visual-wordmark { font-family: 'Cormorant Garamond', serif; font-weight: 800; font-size: 1.6rem; color: #a5b4fc; letter-spacing: -0.04em; }
   .purple { color: #6366f1; }
