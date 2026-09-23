@@ -62,9 +62,10 @@
     },
     {
       name: 'Florida Landfall Detector',
-      desc: 'A Streamlit web app for detecting storm landfalls in Florida.',
-      tags: ['Python', 'Streamlit'],
+      desc: 'Analyzes official NOAA HURDAT2 hurricane tracks using geometric coastline intersections with U.S. Census boundaries to independently detect Florida landfalls. Interpolates landfall times and wind speeds, with interactive maps and filters in Streamlit.',
+      tags: ['Python', 'Geospatial Analysis', 'Streamlit'],
       demo_link: 'https://fl-landfall-detector.streamlit.app/',
+      github_link: 'https://github.com/ItzRae/fl-landfall-detector',
       featured: true,
       visual: 'landfall'
     },
@@ -74,8 +75,7 @@
       tags: ['React', 'CSS Modules', 'Webcam API'],
       demo_link: 'https://photobooth-plus.vercel.app/',
       github_link: 'https://github.com/ItzRae/photobooth-plus',
-      visual: 'photobooth',
-      featured: true
+      visual: 'photobooth'
     },
     {
       name: 'AlgoVisualizer',
