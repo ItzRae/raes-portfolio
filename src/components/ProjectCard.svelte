@@ -5,14 +5,11 @@
     export let featured = false;
 </script>
 
-<a
-    href={card.demo_link}
-    target="_blank"
-    rel="noopener noreferrer"
+<article
     class="project-card {featured ? 'featured' : ''}"
 >
     <!-- Image / visual area -->
-    <div class="project-img-wrap">
+    <a class="project-img-wrap" href={card.demo_link} target="_blank" rel="noopener noreferrer" aria-label={`View ${card.name} live demo`}>
         {#if card.img}
             <img class="project-img" src={card.img} alt="Thumbnail of {card.name}" />
         {:else}
@@ -22,7 +19,7 @@
                 <span class="project-img-placeholder-label">{card.placeholderLabel || card.name}</span>
             </div>
         {/if}
-    </div>
+    </a>
 
     <!-- Body -->
     <div class="project-body">
@@ -50,7 +47,6 @@
                     href={card.github_link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    on:click|stopPropagation
                     aria-label="GitHub"
                 >
                     <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -62,13 +58,13 @@
 
             <!-- Live demo -->
             {#if card.demo_link}
-                <span class="project-link project-link-live">
+                <a class="project-link project-link-live" href={card.demo_link} target="_blank" rel="noopener noreferrer">
                     Live →
-                </span>
+                </a>
             {/if}
         </div>
     </div>
-</a>
+</article>
 
 <style>
     .project-img-placeholder {

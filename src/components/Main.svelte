@@ -52,6 +52,13 @@
 
   const projects = [
     {
+      name: 'Florida Landfall Detector',
+      desc: 'A Streamlit web app for detecting storm landfalls in Florida.',
+      tags: ['Python', 'Streamlit'],
+      demo_link: 'https://fl-landfall-detector.streamlit.app/',
+      visual: 'landfall'
+    },
+    {
       name: 'anti-brainrot',
       desc: 'A macOS desktop app that uses your webcam and a local CV model to detect when you pick up your phone — then calls you out Gen-Z-style in real time. 100% local processing.',
       tags: ['Computer Vision', 'macOS', 'Python'],
@@ -145,7 +152,7 @@
       });
     }
 
-    function draw() {
+    const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
       particles.forEach(p => {
@@ -179,7 +186,7 @@
       }
 
       frame = requestAnimationFrame(draw);
-    }
+    };
 
     resize();
     window.addEventListener('resize', resize);
@@ -220,6 +227,8 @@
       <div class="hero-socials">
         {#each socials as social}
           <a class="social-link" href={social.href} target={social.href.startsWith('http') ? '_blank' : undefined} rel="noreferrer" aria-label={social.label}>
+            <!-- Icons are static SVG strings defined in this component. -->
+            <!-- eslint-disable-next-line svelte/no-at-html-tags -->
             {@html social.icon}
           </a>
         {/each}
@@ -273,6 +282,8 @@
             <div class="about-block reveal" style={`transition-delay:${(index + 1) * 0.1}s`}>
               <div class="about-block-num">{String(index + 1).padStart(2, '0')}</div>
               <h3>{block.title}</h3>
+              <!-- Descriptions are static markup defined in this component. -->
+              <!-- eslint-disable-next-line svelte/no-at-html-tags -->
               <p>{@html block.desc}</p>
             </div>
           {/each}
@@ -302,6 +313,14 @@
                     <div class="visual-emoji">📷</div>
                     <div class="visual-title">PHONE DETECTED</div>
                     <div class="visual-subtitle">⚠ put it down</div>
+                  </div>
+                </div>
+              {:else if project.visual === 'landfall'}
+                <div class="visual visual-landfall">
+                  <div class="visual-center">
+                    <div class="visual-emoji" aria-hidden="true">🌀</div>
+                    <div class="visual-title">Florida Landfall Detector</div>
+                    <div class="visual-subtitle">Storm landfalls · Florida</div>
                   </div>
                 </div>
               {:else if project.visual === 'mammoth'}
@@ -351,10 +370,13 @@
               <h3 class="project-name">{project.name}</h3>
               <p class="project-desc">{project.desc}</p>
               <div class="project-links">
+                {#if project.github_link}
                 <a class="project-link" href={project.github_link} target="_blank" rel="noreferrer">
+                  <!-- eslint-disable-next-line svelte/no-at-html-tags -->
                   {@html githubIcon}
                   GitHub
                 </a>
+                {/if}
                 <a class="project-link accent" href={project.demo_link} target="_blank" rel="noreferrer">Live →</a>
               </div>
             </div>
@@ -372,9 +394,10 @@
     <p class="footer-copy">Built with Svelte and matcha</p>
     <div class="footer-socials">
       {#each socials.slice(0, 2) as social}
+        <!-- Icons are static SVG strings defined in this component. -->
+        <!-- eslint-disable-next-line svelte/no-at-html-tags -->
         <a class="social-link" href={social.href} target="_blank" rel="noreferrer" aria-label={social.label}>{@html social.icon}</a>
       {/each}
     </div>
   </footer>
 </main>
-

@@ -125,6 +125,7 @@
   .visual { width: 100%; aspect-ratio: 16 / 9; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
   .project-card.featured .visual { height: 100%; min-height: 280px; aspect-ratio: unset; }
   .visual-anti { background: #0d0d0d; }
+  .visual-landfall { background: radial-gradient(ellipse at 50% 50%, rgba(56,189,248,0.15) 0%, transparent 70%), #080f14; }
   .visual-anti::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(240,165,0,0.04) 28px, rgba(240,165,0,0.04) 29px); }
   .scanline { position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); animation: scan 3s ease-in-out infinite; }
   @keyframes scan { 0% { top: 0; } 50% { top: calc(100% - 2px); } 100% { top: 0; } }
