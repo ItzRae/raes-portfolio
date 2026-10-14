@@ -2,6 +2,7 @@
   import { base } from '$app/paths';
   import './styles/main.css';
   import Header from './Header.svelte';
+  import ProjectVisual from './ProjectVisual.svelte';
 
   const socials = [
     { label: 'GitHub', href: 'https://github.com/ItzRae' },
@@ -61,7 +62,7 @@
 
   const projects = [
     {
-      name: 'U.S. Hurricane Landfall Detector', dates: 'Multi-state geospatial analysis',
+      visual: 'landfall', name: 'U.S. Hurricane Landfall Detector', dates: 'Multi-state geospatial analysis',
       desc: 'Analyzes official NOAA HURDAT2 storm tracks against U.S. Census boundaries to independently detect water-to-land crossings across 18 Atlantic and Gulf coastal states. Geometric coastline intersections and linear interpolation estimate landfall locations, times, and wind speeds, with interactive maps and filters in Streamlit.',
       metrics: ['18 coastal states', '94.9% reference coverage', '488 detected landfall candidates'],
       tags: ['Python', 'Geospatial Analysis', 'Streamlit'],
@@ -69,14 +70,14 @@
       github_link: 'https://github.com/ItzRae/fl-landfall-detector'
     },
     {
-      name: 'AllyText', dates: 'Jun 2026 · In progress',
+      visual: 'allytext', name: 'AllyText', dates: 'Jun 2026 · In progress',
       desc: 'Developing a Telegram-based AI personal messaging assistant with typed tool execution, permission checks, and LangSmith tracing. Validated backend behavior with 163 automated tests covering APIs, database operations, MCP tool calls, and failure handling using mock data.',
       metrics: ['163 automated tests'],
       tags: ['Python', 'FastAPI', 'LangGraph', 'PostgreSQL', 'Docker'],
       demo_link: '', github_link: ''
     },
     {
-      name: 'anti-brainrot', dates: 'Apr 2026',
+      visual: 'anti-brainrot', name: 'anti-brainrot', dates: 'Apr 2026',
       desc: 'Built an Electron and React desktop app that detects phone usage locally with TensorFlow.js (COCO-SSD) at approximately 100ms per inference. Designed multi-window IPC for behavioral intervention overlays and refined false-positive handling through informal testing with approximately 10 users.',
       metrics: ['~100ms per inference', 'Local computer vision'],
       tags: ['Electron', 'React', 'TensorFlow.js', 'Node.js'],
@@ -181,10 +182,15 @@
 
     <section id="projects" class="resume-section" aria-labelledby="projects-title">
       <div class="section-heading"><h2 id="projects-title">Selected projects</h2><a href="https://github.com/ItzRae" target="_blank" rel="noreferrer">GitHub ↗</a></div>
-      {#each projects as project, index}
-        <article class="resume-entry project-entry">
-          <div class="entry-meta"><span class="project-number">0{index + 1}</span><p>{project.dates}</p></div>
-          <div class="entry-content">
+      {#each projects as project}
+        <article class="project-card project-entry">
+          {#if project.demo_link}
+            <a class="project-preview" href={project.demo_link} target="_blank" rel="noreferrer" aria-label={`View ${project.name} live`}><ProjectVisual visual={project.visual} /></a>
+          {:else}
+            <div class="project-preview"><ProjectVisual visual={project.visual} /></div>
+          {/if}
+          <div class="entry-content project-body">
+            <p class="project-date">{project.dates}</p>
             <h3>{project.name}</h3>
             <div class="tags">{#each project.tags as tag}<span>{tag}</span>{/each}</div>
             <p class="project-description">{project.desc}</p>
@@ -196,14 +202,25 @@
           </div>
         </article>
       {/each}
-      <details class="other-projects">
-        <summary>More projects <span>Photobooth+, AlgoVisualizer, F1, MammothEDU & UGC</span></summary>
+      <div class="other-projects">
+        <h3 class="more-heading">More projects</h3>
         <div class="other-grid">
           {#each otherProjects as project}
-            <article><h3>{project.name}</h3><p>{project.desc}</p><a href={project.demo_link} target="_blank" rel="noreferrer">View project ↗</a></article>
+            <article class="project-card compact-card">
+              <a class="project-preview" href={project.demo_link} target="_blank" rel="noreferrer" aria-label={`View ${project.name} live`}><ProjectVisual visual={project.visual} /></a>
+              <div class="project-body">
+                <h3>{project.name}</h3>
+                <div class="tags">{#each project.tags as tag}<span>{tag}</span>{/each}</div>
+                <p>{project.desc}</p>
+                <div class="project-links">
+                  <a href={project.demo_link} target="_blank" rel="noreferrer">Live project ↗</a>
+                  {#if project.github_link}<a href={project.github_link} target="_blank" rel="noreferrer">GitHub ↗</a>{/if}
+                </div>
+              </div>
+            </article>
           {/each}
         </div>
-      </details>
+      </div>
     </section>
 
     <section id="education" class="resume-section" aria-labelledby="education-title">

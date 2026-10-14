@@ -69,3 +69,48 @@ footer { border-top: 1px solid var(--border); margin-top: 20px; padding: 24px 0 
   .resume-entry { break-inside: avoid; }
   main a { color: #111; }
 }
+
+/* Visual portfolio cards with compact, resume-style details. */
+.project-card { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #EFEBF5; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.project-card:hover, .project-card:focus-within { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 12px 28px #8552a018; }
+.project-entry { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.6fr); padding: 0; margin-bottom: 22px; }
+.project-entry + .project-entry { padding-top: 0; }
+.project-preview { display: block; min-width: 0; color: var(--accent); }
+main a.project-preview:hover { text-decoration: none; }
+.project-body { padding: 26px; min-width: 0; }
+.entry-content .project-date { color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: .68rem; margin-bottom: 8px; }
+.project-visual { position: relative; overflow: hidden; min-height: 245px; height: 100%; display: flex; align-items: center; justify-content: center; background: radial-gradient(ellipse at 50% 40%, #ddd0ee, transparent 75%), #e7e0ef; padding: 24px; }
+.visual-center { position: relative; z-index: 1; text-align: center; width: 100%; }
+.visual-center strong, .visual-center small { display: block; font-family: 'IBM Plex Mono', monospace; }
+.visual-center strong { color: #67417e; font-size: .68rem; letter-spacing: .1em; line-height: 1.7; }
+.visual-center small { color: #655D6C; font-size: .6rem; margin-top: 6px; line-height: 1.7; }
+.visual-icon { display: block; font-size: 3rem; margin-bottom: 16px; transition: transform .4s ease; }
+.project-card:hover .visual-icon { transform: scale(1.1) rotate(-6deg); }
+.visual-landfall { background: radial-gradient(ellipse, #d4deed, #e7e6f2); }
+.radar-rings { position: absolute; width: 220px; height: 220px; border: 1px solid #8552a02b; border-radius: 50%; box-shadow: 0 0 0 30px #8552a00a, 0 0 0 60px #8552a008; }
+.visual-anti-brainrot { background: repeating-linear-gradient(0deg, transparent, transparent 28px, #8552a00b 28px, #8552a00b 29px), #e9e2ef; }
+.scanline { position: absolute; left: 0; right: 0; top: 0; height: 2px; background: #8552a060; animation: scan 4s ease-in-out infinite; }
+@keyframes scan { 0%, 100% { top: 0; } 50% { top: calc(100% - 2px); } }
+.chat-preview { width: 185px; max-width: 100%; margin: 0 auto 22px; display: grid; gap: 8px; }
+.chat-preview span { text-align: left; font-size: .72rem; padding: 9px 12px; background: #F8F6FA; border-radius: 10px 10px 10px 2px; box-shadow: 0 2px 5px #2d263308; }
+.chat-preview span:nth-child(2) { background: #8552A0; color: white; border-radius: 10px 10px 2px 10px; margin-left: 15px; }
+.chat-preview .typing-dots { color: var(--accent); width: fit-content; letter-spacing: 4px; }
+.project-card:hover .typing-dots { animation: pulse 1.2s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .4; } }
+.other-grid { gap: 22px; padding-top: 18px; }
+.other-grid article { padding: 0; }
+.other-grid .project-body { display: flex; flex-direction: column; align-items: flex-start; flex: 1; }
+.compact-card { display: flex; flex-direction: column; }
+.compact-card .project-visual { height: 210px; min-height: 210px; }
+.compact-card .project-links { margin-top: auto; padding-top: 14px; }
+.photobooth-strip { width: 52px; padding: 5px 5px 14px; background: #fff; transform: rotate(-8deg); margin: 0 auto 16px; display: grid; gap: 4px; box-shadow: 0 5px 14px #2d263320; transition: transform .3s ease; }
+.photobooth-strip span { height: 27px; background: linear-gradient(135deg, #b9a0c9, #6c567b); }
+.project-card:hover .photobooth-strip { transform: rotate(3deg); }
+.bars { height: 80px; display: flex; gap: 5px; align-items: flex-end; justify-content: center; margin-bottom: 20px; }
+.bars span { width: 12px; background: #8552A0; border-radius: 2px 2px 0 0; transform-origin: bottom; }
+.project-card:hover .bars span { animation: bars 1s var(--bar-delay) ease-in-out infinite alternate; }
+@keyframes bars { to { transform: scaleY(.5); } }
+.visual-wordmark { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; color: var(--accent); margin-bottom: 10px; }
+@media (max-width: 650px) { .project-entry { grid-template-columns: 1fr; } .project-entry .project-visual { height: 210px; min-height: 210px; } .project-body { padding: 22px; } }
+@media (prefers-reduced-motion: reduce) { .project-card, .visual-icon, .photobooth-strip { transition: none; } .project-card:hover, .project-card:focus-within { transform: none; } .scanline, .project-card:hover .typing-dots, .project-card:hover .bars span { animation: none; } }
+@media print { .project-preview { display: none; } .project-entry { display: block; break-inside: avoid; } .project-card { box-shadow: none; transform: none; } }
