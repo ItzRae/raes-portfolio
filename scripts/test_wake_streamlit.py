@@ -33,7 +33,7 @@ class WakeTests(unittest.TestCase):
     def test_rendered_landfall_heading_is_ready(self):
         driver = self.driver({
             (By.CSS_SELECTOR, '[data-testid="stAppViewContainer"] h1'):
-                [element("Florida Landfall Detector")],
+                [element("U.S. Hurricane Landfall Detector")],
         })
         self.assertTrue(app_ready(driver))
 
@@ -48,7 +48,7 @@ class WakeTests(unittest.TestCase):
         driver = self.driver({(By.TAG_NAME, 'iframe'): [element()]})
         headings = (By.CSS_SELECTOR, '[data-testid="stAppViewContainer"] h1')
         driver.find_elements.side_effect = lambda *selector: (
-            [element("Florida Landfall Detector")]
+            [element("U.S. Hurricane Landfall Detector")]
             if selector == headings and driver.switch_to.frame.called
             else [element()] if selector == (By.TAG_NAME, 'iframe') else []
         )

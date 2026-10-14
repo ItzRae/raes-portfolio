@@ -1,4 +1,4 @@
-name: Wake Florida Landfall Detector
+name: Wake U.S. Hurricane Landfall Detector
 
 on:
   schedule:

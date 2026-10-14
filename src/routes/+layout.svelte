@@ -1,15 +1,5 @@
 <script lang="ts">
-	import '../components/styles/app.css';
-
-	import '../components/styles/utils.css'; 
-	import Header from '../components/Header.svelte';
-	import Main from '../components/Main.svelte';
-	// let { children } = $props();
+  import '../components/styles/app.css';
 </script>
 
-<!-- {@render children()} -->
-<div>
-	<Header />
-	<Main />
-	<!-- <slot /> -->
-</div>
+<slot />

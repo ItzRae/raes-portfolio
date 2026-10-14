@@ -9,7 +9,7 @@ from selenium.common.exceptions import (
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 
-APP_URL = "https://fl-landfall-detector.streamlit.app/"
+APP_URL = "https://us-landfall-detector.streamlit.app/"
 WAKE_BUTTON = (By.XPATH, "//button[contains(normalize-space(.), 'Yes, get this app back up')]")
 
 
@@ -63,7 +63,7 @@ def main():
             WebDriverWait(driver, 180, poll_frequency=2).until(app_ready)
         except TimeoutException as exc:
             raise RuntimeError("App did not render its landfall heading within 180 seconds.") from exc
-        print("Florida Landfall Detector is awake and rendered.", flush=True)
+        print("U.S. Hurricane Landfall Detector is awake and rendered.", flush=True)
 
 
 if __name__ == "__main__":

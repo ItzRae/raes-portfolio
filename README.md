@@ -39,7 +39,7 @@ You can preview the production build with `npm run preview`.
 
 ## Streamlit app wake-up
 
-[Wake Florida Landfall Detector](https://github.com/ItzRae/raes-portfolio/actions/workflows/wake-streamlit.yml)
+[Wake U.S. Hurricane Landfall Detector](https://github.com/ItzRae/raes-portfolio/actions/workflows/wake-streamlit.yml)
 visits the public app every four hours at minute 17 (UTC). It also runs when its
 script or workflow changes on `main`, and supports **Run workflow** in GitHub Actions.
 It clicks Streamlit's wake-up button when present and requires a rendered landfall
