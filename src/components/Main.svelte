@@ -202,8 +202,8 @@
           </div>
         </article>
       {/each}
-      <div class="other-projects">
-        <h3 class="more-heading">More projects</h3>
+      <details class="other-projects">
+        <summary>More projects <span>Photobooth+, AlgoVisualizer, F1, MammothEDU & UGC</span></summary>
         <div class="other-grid">
           {#each otherProjects as project}
             <article class="project-card compact-card">
@@ -220,7 +220,7 @@
             </article>
           {/each}
         </div>
-      </div>
+      </details>
     </section>
 
     <section id="education" class="resume-section" aria-labelledby="education-title">
