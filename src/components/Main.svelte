@@ -2,6 +2,7 @@
   import { base } from '$app/paths';
   import './styles/main.css';
   import Header from './Header.svelte';
+  import AskRachel from './AskRachel.svelte';
   import ProjectVisual from './ProjectVisual.svelte';
 
   const socials = [
@@ -134,6 +135,26 @@
     { label: 'AI & data', value: 'LLM workflows, prompt engineering, RAG, NLP, ETL, computer vision' },
     { label: 'Tools', value: 'PostgreSQL, Firebase, Docker, Git, Selenium, Vercel, CI/CD' }
   ];
+  const hobbies = 'Outside of coding, I enjoy making and drinking matcha, playing NYT Wordle, Sudoku, and Globle, playing chess, and reading.';
+  const suggestions = [
+    { question: 'What kind of work have you done?', answer: { title: 'Experience', text: 'My experience spans full-stack development at IHAI Time, volunteer development for Keelung For a Walk, data mining and teaching at Amherst College, and client-facing content strategy.', href: '#experience' } },
+    { question: 'What AI systems have you built?', answer: { title: 'AI & software projects', text: 'I’m developing AllyText, a Telegram-based AI assistant with typed tools and permission checks. I built anti-brainrot for local phone detection with TensorFlow.js, and AI-assisted spreadsheet ingestion workflows at IHAI Time.', href: '#projects' } },
+    { question: 'What are your featured projects?', answer: { title: 'Selected projects', text: 'The U.S. Hurricane Landfall Detector analyzes 18 coastal states with 94.9% reference coverage and 488 detected landfall candidates. AllyText is an AI assistant in progress with 163 automated tests. anti-brainrot detects phone use locally in approximately 100ms per inference.', href: '#projects' } },
+    { question: 'What research have you done?', answer: { title: 'Data mining at Amherst', text: 'As a Data Mining Intern, I built a Selenium pipeline for 10,000+ tweets, applied NLP sentiment analysis to Latin American feminist hashtags, and created 15+ visualizations with pandas and seaborn.', href: '#experience' } },
+    { question: 'Where did you study?', answer: { title: 'Education & training', text: 'I graduated from Amherst College in May 2025 with a B.A. in Computer Science and a 3.74 GPA. I completed CodePath’s Applications of AI Engineering with Honors in September 2026.', href: '#education' } },
+    { question: 'How have you worked on social impact?', answer: { title: 'Community & volunteer work', text: 'I build interactive experiences for Keelung For a Walk and a volunteer management platform at IHAI Time. At The Remedy Project, I supported data and website operations for 1,000+ community members.', href: '#experience' } },
+    { question: 'What do you do for fun?', answer: { title: 'Outside of work', text: hobbies, href: '#interests' } }
+  ];
+  const portfolioFacts = [
+    ...experience.map(item => ({ title: `${item.role} · ${item.organization}`, text: `${item.dates}. ${item.bullets.join(' ')}`, href: '#experience', keywords: 'work job career experience' })),
+    ...projects.map(item => ({ title: item.name, text: `${item.desc} Highlights: ${item.metrics.join('; ')}.`, href: '#projects', keywords: item.tags.join(' ') })),
+    ...otherProjects.map(item => ({ title: item.name, text: item.desc, href: '#more-projects', keywords: item.tags.join(' ') })),
+    ...skillGroups.map(group => ({ title: group.label, text: group.value, href: '#skills', keywords: 'skills technologies stack programming' })),
+    { title: 'Outside of work', text: hobbies, href: '#interests', keywords: 'hobbies hobby interests fun free time games puzzles books tea matcha wordle sudoku globle chess reading' },
+    { title: 'Education', text: suggestions[4].answer.text, href: '#education', keywords: 'study studied school college degree university graduate graduation gpa training codepath honors' },
+    { title: 'Awards', text: 'Third Place, Best Accessibility Hack at MLH CivicHacks in January 2023.', href: '#awards', keywords: 'award hackathon accessibility' },
+    { title: 'Contact', text: 'You can reach Rachel at rrae1825@gmail.com or through the LinkedIn link at the top of this portfolio.', href: '#hero', keywords: 'contact email reach linkedin' }
+  ];
 </script>
 
 <svelte:head>
@@ -160,6 +181,8 @@
       </div>
       <img class="portrait" src={`${base}/files/heropicture.jpg`} alt="Rachel Lin" />
     </section>
+
+    <AskRachel facts={portfolioFacts} {suggestions} />
 
     <section id="experience" class="resume-section" aria-labelledby="experience-title">
       <div class="section-heading">
@@ -202,7 +225,7 @@
           </div>
         </article>
       {/each}
-      <details class="other-projects">
+      <details id="more-projects" class="other-projects">
         <summary>More projects <span>Photobooth+, AlgoVisualizer, F1, MammothEDU & UGC</span></summary>
         <div class="other-grid">
           {#each otherProjects as project}
@@ -237,6 +260,10 @@
     <section id="skills" class="resume-section" aria-labelledby="skills-title">
       <div class="section-heading"><h2 id="skills-title">Technical skills</h2></div>
       <dl class="skill-list">{#each skillGroups as group}<div><dt>{group.label}</dt><dd>{group.value}</dd></div>{/each}</dl>
+    </section>
+    <section id="interests" class="resume-section" aria-labelledby="interests-title">
+      <div class="section-heading"><h2 id="interests-title">Outside of work</h2></div>
+      <p class="interests-copy">{hobbies}</p>
     </section>
     <footer><p>Rachel Lin · Amherst College ’25</p><p>Built with Svelte & TypeScript</p></footer>
   </div>

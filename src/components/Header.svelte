@@ -5,11 +5,13 @@
 
   const tabs = [
     { name: 'Overview', id: 'hero' },
+    { name: 'Ask Rachel', id: 'ask' },
     { name: 'Experience', id: 'experience' },
     { name: 'Projects', id: 'projects' },
     { name: 'Education', id: 'education' },
     { name: 'Awards', id: 'awards' },
-    { name: 'Skills', id: 'skills' }
+    { name: 'Skills', id: 'skills' },
+    { name: 'Interests', id: 'interests' }
   ];
   let active = 'hero';
 
@@ -22,7 +24,7 @@
       for (const section of sections) {
         if (section && section.getBoundingClientRect().top <= offset) current = section.id;
       }
-      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) current = 'skills';
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) current = 'interests';
       active = current;
     };
     const scheduleUpdate = () => {

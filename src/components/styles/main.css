@@ -114,3 +114,17 @@ main a.project-preview:hover { text-decoration: none; }
 @media (max-width: 650px) { .project-entry { grid-template-columns: 1fr; } .project-entry .project-visual { height: 210px; min-height: 210px; } .project-body { padding: 22px; } }
 @media (prefers-reduced-motion: reduce) { .project-card, .visual-icon, .photobooth-strip { transition: none; } .project-card:hover, .project-card:focus-within { transform: none; } .scanline, .project-card:hover .typing-dots, .project-card:hover .bars span { animation: none; } }
 @media print { .project-preview { display: none; } .project-entry { display: block; break-inside: avoid; } .project-card { box-shadow: none; transform: none; } }
+
+/* Larger reading sizes across the portfolio. */
+.intro { font-size: 1.15rem; }
+h2 { font-size: 2.4rem; }
+h3 { font-size: 1.2rem; }
+.entry-content li, .entry-content p, .other-grid p, .skill-list > div { font-size: 1rem; line-height: 1.8; }
+.entry-meta, .entry-content .project-date { font-size: .85rem; }
+.entry-type, .tags { font-size: .8rem; }
+.entry-content .metrics li { font-size: .88rem; }
+.project-links, .other-grid a, .contact-links, .section-heading p, .section-heading a, summary { font-size: .95rem; }
+summary span, footer { font-size: .85rem; }
+.interests-copy { font-size: 1.05rem; line-height: 1.8; color: var(--muted); padding-bottom: 20px; }
+#more-projects { scroll-margin-top: 130px; }
+#more-projects:target { outline: 2px solid var(--accent); outline-offset: 6px; }
