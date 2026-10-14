@@ -1,25 +1,54 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+  import { base } from '$app/paths';
   import './styles/header.css';
 
   const tabs = [
-    { name: 'Experience', link: '#experience' },
-    { name: 'Projects', link: '#projects' }
+    { name: 'Overview', id: 'hero' },
+    { name: 'Experience', id: 'experience' },
+    { name: 'Projects', id: 'projects' },
+    { name: 'Education', id: 'education' },
+    { name: 'Awards', id: 'awards' },
+    { name: 'Skills', id: 'skills' }
   ];
+  let active = 'hero';
+
+  onMount(() => {
+    const sections = tabs.map(tab => document.getElementById(tab.id));
+    let frame = 0;
+    const update = () => {
+      const offset = window.innerWidth <= 900 ? 160 : 100;
+      let current = 'hero';
+      for (const section of sections) {
+        if (section && section.getBoundingClientRect().top <= offset) current = section.id;
+      }
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) current = 'skills';
+      active = current;
+    };
+    const scheduleUpdate = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', scheduleUpdate);
+    };
+  });
 </script>
 
 <header class="site-header">
-  <a class="site-nav-brand" href="#hero">RL<span>.</span></a>
-
-  <nav class="site-nav">
+  <a class="site-nav-brand" href="#hero" aria-label="Rachel Lin — overview">RL<span>.</span></a>
+  <p class="nav-label">On this page</p>
+  <nav class="site-nav" aria-label="Portfolio sections">
     <ul class="site-nav-links">
       {#each tabs as tab}
-        <li><a href={tab.link}>{tab.name}</a></li>
+        <li><a href={`#${tab.id}`} class:active={active === tab.id} aria-current={active === tab.id ? 'location' : undefined}>{tab.name}</a></li>
       {/each}
-      <li>
-        <a class="site-nav-cta" href="/files/resume.pdf" target="_blank" rel="noreferrer">
-          Resume ↗
-        </a>
-      </li>
     </ul>
   </nav>
+  <a class="site-nav-cta" href={`${base}/files/resume.pdf`} target="_blank" rel="noreferrer">Resume ↗</a>
 </header>

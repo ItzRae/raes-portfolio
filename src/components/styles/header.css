@@ -1,81 +1,26 @@
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 99999;
-
-  height: 72px;
-  padding: 0 2rem;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  background: rgba(248, 246, 250, 0.94);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid #DAD2E3;
+.site-header { position: fixed; inset: 0 auto 0 0; z-index: 100; width: 210px; padding: 48px 24px; display: flex; flex-direction: column; align-items: stretch; background: #EFEBF5; border-right: 1px solid #DAD2E3; overflow-y: auto; }
+.site-nav-brand { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 2rem; color: #2D2633; text-decoration: none; align-self: flex-start; margin-bottom: 52px; }
+.site-nav-brand span { color: #8552A0; }
+.nav-label { font-family: 'IBM Plex Mono', monospace; color: #655D6C; text-transform: uppercase; font-size: .6rem; letter-spacing: .1em; padding-left: 12px; margin-bottom: 14px; }
+.site-nav-links { display: flex; flex-direction: column; gap: 6px; list-style: none; padding: 0; margin: 0; }
+.site-nav-links a { display: block; font-family: 'DM Sans', sans-serif; font-size: .85rem; text-decoration: none; color: #655D6C; padding: 10px 12px; border-left: 2px solid transparent; border-radius: 0 4px 4px 0; transition: background .2s ease, color .2s ease; }
+.site-nav-links a:hover { color: #8552A0; background: #F8F6FA; }
+.site-nav-links a.active { color: #8552A0; background: #F8F6FA; border-left-color: #8552A0; font-weight: 600; }
+.site-nav-cta { font-family: 'IBM Plex Mono', monospace; font-size: .7rem; color: #8552A0; text-decoration: none; border: 1px solid #8552A0; padding: 10px 16px; border-radius: 3px; margin-top: 32px; text-align: center; }
+.site-nav-cta:hover { background: #8552A0; color: #F8F6FA; }
+.site-header a:focus-visible { outline: 2px solid #8552A0; outline-offset: 3px; }
+@media (min-width: 901px) { main { margin-left: 210px; } main #hero { padding-top: 64px; } main section { scroll-margin-top: 32px; } }
+@media (max-width: 900px) {
+  .site-header { inset: 0 0 auto; width: auto; padding: 12px 22px 8px; display: grid; grid-template-columns: 1fr auto; gap: 10px; background: rgba(248,246,250,.97); backdrop-filter: blur(12px); border-right: 0; border-bottom: 1px solid #DAD2E3; overflow: visible; }
+  .site-nav-brand { font-size: 1.4rem; margin: 0; }
+  .nav-label { display: none; }
+  .site-nav-cta { grid-column: 2; grid-row: 1; margin: 0; padding: 5px 10px; font-size: .6rem; }
+  .site-nav { grid-column: 1 / -1; min-width: 0; overflow-x: auto; padding: 3px 0; }
+  .site-nav-links { flex-direction: row; gap: 4px; width: max-content; }
+  .site-nav-links a { padding: 7px 10px; font-size: .72rem; border-left: 0; border-bottom: 2px solid transparent; border-radius: 3px 3px 0 0; }
+  .site-nav-links a.active { border-bottom-color: #8552A0; background: #EFEBF5; }
+  main section { scroll-margin-top: 125px; }
+  main #hero { padding-top: 145px; }
 }
-
-.site-nav-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: #2D2633;
-  text-decoration: none;
-}
-
-.site-nav-brand span {
-  color: #8552A0;
-}
-
-.site-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.site-nav-links a {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-
-  color: #655D6C;
-  transition: 0.2s ease;
-}
-
-.site-nav-links a:hover {
-  color: #2D2633;
-}
-
-.site-nav-cta {
-  color: #8552A0 !important;
-  border: 1px solid #8552A0;
-  padding: 0.45em 1em;
-  border-radius: 2px;
-  font-weight: 500;
-}
-
-.site-nav-cta:hover {
-  background: #8552A0;
-  color: #F8F6FA !important;
-}
-
-@media (max-width: 640px) {
-  .site-header {
-    padding: 0 1rem;
-  }
-
-  .site-nav-links {
-    gap: 1rem;
-  }
-
-  .site-nav-links a {
-    font-size: 0.62rem;
-  }
-}
+@media (prefers-reduced-motion: reduce) { .site-nav-links a { transition: none; } }
+@media print { .site-header { display: none; } main { margin-left: 0; } main #hero { padding-top: 0; } }
