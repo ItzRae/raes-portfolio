@@ -46,7 +46,8 @@ summary span { color: var(--muted); font-size: .72rem; margin-left: 10px; }
 .skill-list > div { display: grid; grid-template-columns: 210px 1fr; gap: 40px; padding-bottom: 15px; font-size: .85rem; line-height: 1.75; }
 .skill-list dt { color: var(--text); }
 .skill-list dd { color: var(--muted); margin: 0; }
-footer { border-top: 1px solid var(--border); margin-top: 24px; padding: 28px 0 40px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--muted); font-size: .72rem; }
+.skill-list > div:last-child { padding-bottom: 0; }
+footer { border-top: 1px solid var(--border); padding: 28px 0 40px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; color: var(--muted); font-size: .72rem; }
 @media (max-width: 650px) {
   .container { padding: 0 22px; }
   #hero { grid-template-columns: 1fr 88px; gap: 18px; padding-top: 110px; padding-bottom: 35px; }
@@ -126,7 +127,6 @@ h3 { font-size: 1.35rem; }
 .organization { font-size: 1.05rem; }
 .project-links, .other-grid a, .contact-links, .section-heading p, .section-heading a, summary { font-size: 1.05rem; }
 summary span, footer { font-size: .92rem; }
-.interests-copy { font-size: 1.15rem; line-height: 1.8; color: var(--muted); padding-bottom: 20px; }
 #more-projects { scroll-margin-top: 130px; }
 #more-projects:target { outline: 2px solid var(--accent); outline-offset: 6px; }
 

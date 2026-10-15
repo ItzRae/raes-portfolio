@@ -108,6 +108,7 @@
       <div class="section-heading" use:reveal><h2 id="education-title">Education & training</h2></div>
       <article class="resume-entry" use:reveal><div class="entry-meta">Sep 2026</div><div class="entry-content"><h3>CodePath</h3><p>Applications of AI Engineering · Completed with Honors · AI Open Source Capstone</p></div></article>
       <article class="resume-entry" use:reveal><div class="entry-meta">May 2025</div><div class="entry-content"><h3>Amherst College</h3><p>B.A. in Computer Science · GPA 3.74 / 4.0</p><p class="education-detail">Coursework in AI, machine learning, data mining, algorithms, data science, and computer systems.</p></div></article>
+      <article class="resume-entry" use:reveal><div class="entry-meta">Feb – Jul 2024</div><div class="entry-content"><h3>Yonsei University · CIEE Seoul</h3><p>Study abroad · Seoul, South Korea · Spring 2024</p><p class="education-detail">Studied computer vision and brain, cognition, and daily life.</p></div></article>
     </section>
 
     <section id="awards" class="resume-section" aria-labelledby="awards-title">
