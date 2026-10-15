@@ -119,10 +119,6 @@
       <div class="section-heading" use:reveal><h2 id="skills-title">Technical skills</h2></div>
       <dl class="skill-list" use:reveal>{#each skillGroups as group}<div><dt>{group.label}</dt><dd>{group.value}</dd></div>{/each}</dl>
     </section>
-    <section id="interests" class="resume-section" aria-labelledby="interests-title">
-      <div class="section-heading" use:reveal><h2 id="interests-title">Outside of work</h2></div>
-      <p class="interests-copy" use:reveal>{hobbies}</p>
-    </section>
-    <footer use:reveal><p>Rachel Lin · Amherst College ’25</p><p>Built with Svelte & TypeScript</p></footer>
+    <footer use:reveal><p>Rachel Lin · Amherst College ’25</p><p>Built with Svelte & TypeScript & matcha.</p></footer>
   </div>
 </main>
