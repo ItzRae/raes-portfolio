@@ -14,7 +14,7 @@
   let nextId = 0;
   let threadEl: HTMLDivElement;
   let controller: AbortController | undefined;
-  let timer: ReturnType<typeof setInterval> | undefined;
+  let timer: ReturnType<typeof setTimeout> | undefined;
 
   const normalize = (value: string) => value.toLowerCase().replace(/[?!.]/g, '').trim();
   const reducedMotion = () => typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -28,7 +28,7 @@
     threadEl?.scrollTo({ top: threadEl.scrollHeight, behavior: reducedMotion() ? 'auto' : 'smooth' });
   }
 
-  /** Reveal queued text a few characters at a time so streamed and fallback answers both type out. */
+  /** Type queued text at a steady, human pace (with pauses after punctuation), however fast it streams in. */
   function typewriter(id: number) {
     let target = '';
     let shown = '';
@@ -38,23 +38,28 @@
     const step = () => {
       if (shown.length < target.length) {
         const behind = target.length - shown.length;
-        shown = target.slice(0, shown.length + (reducedMotion() ? behind : Math.max(1, Math.ceil(behind / 40))));
+        shown = target.slice(0, shown.length + (behind > 400 ? 4 : behind > 160 ? 2 : 1));
         update(id, { shown });
         scrollThread();
+        const last = shown.at(-1) ?? '';
+        timer = setTimeout(step, /[.!?]/.test(last) ? 170 : /[,;:]/.test(last) ? 70 : 11 + Math.random() * 14);
       } else if (done) {
-        clearInterval(timer);
         timer = undefined;
         resolveFinished();
+      } else {
+        timer = setTimeout(step, 40);
       }
     };
-    clearInterval(timer);
-    timer = setInterval(step, 22);
+    clearTimeout(timer);
+    timer = setTimeout(step, 0);
     return {
       push: (text: string) => { target += text; },
       end: () => { done = true; return finished; },
       get received() { return target; }
     };
   }
+
+  const tokens = (text: string) => text.split(/(\s+)/).filter(Boolean);
 
   function localAnswer(value: string, preset?: PortfolioFact): { text: string; source?: PortfolioFact } {
     const match = preset || suggestions.find(item => normalize(item.question) === normalize(value))?.answer;
@@ -101,7 +106,7 @@
     busy = false;
   }
 
-  onDestroy(() => { controller?.abort(); clearInterval(timer); });
+  onDestroy(() => { controller?.abort(); clearTimeout(timer); });
 </script>
 
 <section id="ask" class="ask-section" aria-labelledby="ask-title">
@@ -114,13 +119,22 @@
   </div>
 
   <div class="question-chips" aria-label="Suggested questions">
-    {#each suggestions as suggestion}
-      <button type="button" disabled={busy} on:click={() => ask(suggestion.question, suggestion.answer)}>{suggestion.question}</button>
+    {#each suggestions as suggestion, index}
+      <button type="button" style={`--i: ${index}`} class:asked={thread.some(item => item.question === suggestion.question)} disabled={busy} on:click={() => ask(suggestion.question, suggestion.answer)}>{suggestion.question}</button>
     {/each}
   </div>
 
-  <div class="chat-window">
-    <div class="thread" bind:this={threadEl} aria-live="polite">
+  <div class="chat-window" class:active={busy}>
+    <div class="chat-bar">
+      <span class="avatar" class:pulsing={busy} aria-hidden="true">RL</span>
+      <div>
+        <p class="chat-name">Rachel’s assistant</p>
+        <p class="chat-status" aria-hidden="true">
+          {#if busy}<span class="status-dot typing"></span>typing<span class="ellipsis"><i>.</i><i>.</i><i>.</i></span>{:else}<span class="status-dot"></span>online · answers from this portfolio{/if}
+        </p>
+      </div>
+    </div>
+    <div class="thread" bind:this={threadEl}>
       {#if !thread.length}
         <div class="message bot intro-message">
           <span class="avatar" aria-hidden="true">RL</span>
@@ -135,7 +149,7 @@
             {#if !item.shown && item.typing}
               <span class="thinking" aria-label="Writing an answer"><i></i><i></i><i></i></span>
             {:else}
-              <p>{item.shown}{#if item.typing}<span class="caret" aria-hidden="true"></span>{/if}</p>
+              <p>{#each tokens(item.shown) as token, index (index)}<span class="word">{token}</span>{/each}{#if item.typing}<span class="caret" aria-hidden="true"></span>{/if}</p>
             {/if}
             {#if item.source && !item.typing}
               <a href={item.source.href} on:click={() => {
@@ -147,6 +161,7 @@
         </div>
       {/each}
     </div>
+    <p class="visually-hidden" aria-live="polite">{thread.at(-1) && !thread.at(-1)?.typing ? thread.at(-1)?.shown : ''}</p>
     <form on:submit|preventDefault={() => ask(question)}>
       <label class="visually-hidden" for="portfolio-question">Ask your own question</label>
       <input id="portfolio-question" bind:value={question} maxlength="300" autocomplete="off" placeholder="Ask anything, e.g. What has Rachel built with Python?" />
@@ -165,13 +180,28 @@
   .question-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
   button, input { font: inherit; }
   button { cursor: pointer; }
-  .question-chips button { text-align: left; border: 1px solid #CDBBDC; border-radius: 28px; background: #FDFCFE; color: var(--text); padding: 11px 18px; font-size: 1rem; line-height: 1.4; transition: background .2s, border-color .2s, transform .2s; }
-  .question-chips button:hover:not(:disabled) { border-color: var(--accent); background: #E2D6EC; transform: translateY(-1px); }
+  .question-chips button { animation: chip-in .5s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i) * 60ms); text-align: left; border: 1px solid #CDBBDC; border-radius: 28px; background: #FDFCFE; color: var(--text); padding: 11px 18px; font-size: 1rem; line-height: 1.4; transition: background .2s, border-color .2s, transform .2s; }
+  .question-chips button:hover:not(:disabled) { border-color: var(--accent); background: #E2D6EC; transform: translateY(-2px); box-shadow: 0 6px 14px #59316f14; }
+  .question-chips button:active:not(:disabled) { transform: scale(.97); }
+  .question-chips button.asked { border-color: #B79BCB; background: #EDE4F4; }
   button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   button:disabled { opacity: .55; cursor: default; }
-  .chat-window { background: #FDFCFE; border: 1px solid #DCD0E7; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px #59316f0d; }
+  .chat-window { background: #FDFCFE; border: 1px solid #DCD0E7; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px #59316f0d; transition: box-shadow .4s ease, border-color .4s ease; }
+  .chat-window.active { border-color: #C6AEDA; box-shadow: 0 14px 40px #8552a026; }
+  .chat-bar { display: flex; align-items: center; gap: 12px; padding: 14px 22px; border-bottom: 1px solid #EEE7F3; background: linear-gradient(90deg, #F7F2FB, #FDFCFE); }
+  .chat-name { font-weight: 600; font-size: 1rem; }
+  .chat-status { font-family: 'IBM Plex Mono', monospace; color: var(--muted); font-size: .78rem; display: flex; align-items: center; gap: 7px; min-height: 1.2em; }
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #62B587; box-shadow: 0 0 0 3px #62b58726; }
+  .status-dot.typing { background: var(--accent); box-shadow: 0 0 0 3px #8552a02e; animation: glow 1s ease-in-out infinite; }
+  .ellipsis i { font-style: normal; animation: blink 1.2s infinite; }
+  .ellipsis i:nth-child(2) { animation-delay: .2s; }
+  .ellipsis i:nth-child(3) { animation-delay: .4s; }
+  .avatar.pulsing { animation: ring 1.4s ease-out infinite; }
+  .word { animation: ink .45s ease-out both; }
   .thread { display: flex; flex-direction: column; gap: 16px; padding: 26px; min-height: 260px; max-height: 460px; overflow-y: auto; }
-  .message { display: flex; gap: 12px; align-items: flex-start; animation: rise .35s ease both; }
+  .message { display: flex; gap: 12px; align-items: flex-start; }
+  .message.user { animation: pop-right .4s cubic-bezier(.2,.9,.3,1.2) both; }
+  .message.bot { animation: pop-left .45s cubic-bezier(.2,.9,.3,1.2) .12s both; }
   .message p { font-size: 1.08rem; line-height: 1.75; overflow-wrap: anywhere; }
   .message.user { justify-content: flex-end; }
   .message.user p { background: var(--accent); color: white; padding: 11px 18px; border-radius: 18px 18px 4px 18px; max-width: 78%; }
@@ -191,9 +221,14 @@
   .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   @keyframes blink { 50% { opacity: 0; } }
   @keyframes bounce { 0%, 80%, 100% { opacity: .35; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-4px); } }
-  @keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+  @keyframes pop-right { from { opacity: 0; transform: translate(18px, 10px) scale(.92); } }
+  @keyframes pop-left { from { opacity: 0; transform: translate(-18px, 10px) scale(.92); } }
+  @keyframes chip-in { from { opacity: 0; transform: translateY(10px); } }
+  @keyframes ink { from { opacity: 0; filter: blur(3px); color: var(--accent); } }
+  @keyframes glow { 50% { box-shadow: 0 0 0 6px #8552a014; } }
+  @keyframes ring { 0% { box-shadow: 0 0 0 0 #8552a055; } 100% { box-shadow: 0 0 0 10px #8552a000; } }
   @media (max-width: 800px) { .ask-header { grid-template-columns: 1fr; gap: 12px; } }
   @media (max-width: 650px) { .ask-section { padding: 26px 18px; } h2 { font-size: 2.3rem; } .thread { padding: 18px 14px; } form { flex-direction: column; } .message.user p, .bubble { max-width: 90%; } }
-  @media (prefers-reduced-motion: reduce) { .message, .caret, .thinking i { animation: none; } .question-chips button { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { .message, .question-chips button, .thinking i, .avatar.pulsing, .status-dot.typing { animation: none; } .word { animation: none; } .question-chips button, .chat-window { transition: none; } }
   @media print { .ask-section { display: none; } }
 </style>
