@@ -172,23 +172,23 @@
 </section>
 
 <style>
-  .ask-section { padding: 44px; margin: 0 0 56px; border: 1px solid var(--border); background: #EFEBF5; border-radius: 20px; }
+  .ask-section { padding: 44px; margin: 0 0 56px; border: 1px solid var(--border); background: var(--surface); border-radius: 20px; }
   .ask-header { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 36px; align-items: end; margin-bottom: 28px; }
   .ask-eyebrow { font-family: 'IBM Plex Mono', monospace; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; margin-bottom: 6px; }
-  h2 { color: #59316f; font-size: 3rem; }
+  h2 { color: var(--heading); font-size: 3rem; }
   .ask-intro { color: var(--muted); font-size: 1.15rem; line-height: 1.75; }
   .question-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
   button, input { font: inherit; }
   button { cursor: pointer; }
-  .question-chips button { animation: chip-in .5s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i) * 60ms); text-align: left; border: 1px solid #CDBBDC; border-radius: 28px; background: #FDFCFE; color: var(--text); padding: 11px 18px; font-size: 1rem; line-height: 1.4; transition: background .2s, border-color .2s, transform .2s; }
-  .question-chips button:hover:not(:disabled) { border-color: var(--accent); background: #E2D6EC; transform: translateY(-2px); box-shadow: 0 6px 14px #59316f14; }
+  .question-chips button { animation: chip-in .5s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i) * 60ms); text-align: left; border: 1px solid var(--border); border-radius: 28px; background: var(--raised); color: var(--text); padding: 11px 18px; font-size: 1rem; line-height: 1.4; transition: background .2s, border-color .2s, transform .2s; }
+  .question-chips button:hover:not(:disabled) { border-color: var(--accent); background: var(--hover); transform: translateY(-2px); box-shadow: 0 6px 14px var(--heading)14; }
   .question-chips button:active:not(:disabled) { transform: scale(.97); }
-  .question-chips button.asked { border-color: #B79BCB; background: #EDE4F4; }
+  .question-chips button.asked { border-color: var(--border); background: var(--hover); }
   button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   button:disabled { opacity: .55; cursor: default; }
-  .chat-window { background: #FDFCFE; border: 1px solid #DCD0E7; border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px #59316f0d; transition: box-shadow .4s ease, border-color .4s ease; }
-  .chat-window.active { border-color: #C6AEDA; box-shadow: 0 14px 40px #8552a026; }
-  .chat-bar { display: flex; align-items: center; gap: 12px; padding: 14px 22px; border-bottom: 1px solid #EEE7F3; background: linear-gradient(90deg, #F7F2FB, #FDFCFE); }
+  .chat-window { background: var(--raised); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 10px 30px var(--heading)0d; transition: box-shadow .4s ease, border-color .4s ease; }
+  .chat-window.active { border-color: var(--accent); box-shadow: 0 14px 40px #8552a026; }
+  .chat-bar { display: flex; align-items: center; gap: 12px; padding: 14px 22px; border-bottom: 1px solid var(--border); background: linear-gradient(90deg, var(--surface), var(--raised)); }
   .chat-name { font-weight: 600; font-size: 1rem; }
   .chat-status { font-family: 'IBM Plex Mono', monospace; color: var(--muted); font-size: .78rem; display: flex; align-items: center; gap: 7px; min-height: 1.2em; }
   .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #62B587; box-shadow: 0 0 0 3px #62b58726; }
@@ -204,9 +204,9 @@
   .message.bot { animation: pop-left .45s cubic-bezier(.2,.9,.3,1.2) .12s both; }
   .message p { font-size: 1.08rem; line-height: 1.75; overflow-wrap: anywhere; }
   .message.user { justify-content: flex-end; }
-  .message.user p { background: var(--accent); color: white; padding: 11px 18px; border-radius: 18px 18px 4px 18px; max-width: 78%; }
-  .avatar { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: #E2D6EC; color: #59316f; font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1rem; }
-  .bubble, .intro-message p { background: #F3EFF7; padding: 13px 18px; border-radius: 4px 18px 18px 18px; max-width: 85%; color: var(--text); }
+  .message.user p { background: var(--accent-fill); color: white; padding: 11px 18px; border-radius: 18px 18px 4px 18px; max-width: 78%; }
+  .avatar { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--hover); color: var(--heading); font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1rem; }
+  .bubble, .intro-message p { background: var(--surface); padding: 13px 18px; border-radius: 4px 18px 18px 18px; max-width: 85%; color: var(--text); }
   .intro-message p { color: var(--muted); }
   .bubble a { display: inline-block; font-size: .92rem; margin-top: 8px; }
   .caret { display: inline-block; width: 2px; height: 1.1em; margin-left: 2px; vertical-align: text-bottom; background: var(--accent); animation: blink 1s steps(1) infinite; }
@@ -214,9 +214,9 @@
   .thinking i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); opacity: .35; animation: bounce 1.2s ease-in-out infinite; }
   .thinking i:nth-child(2) { animation-delay: .15s; }
   .thinking i:nth-child(3) { animation-delay: .3s; }
-  form { display: flex; gap: 10px; padding: 14px; border-top: 1px solid #E6DDEE; background: #F8F6FA; }
-  input { min-width: 0; flex: 1; padding: 14px 16px; border-radius: 10px; border: 1px solid #CDBBDC; background: #FDFCFE; color: var(--text); font-size: 1.05rem; }
-  form button { padding: 12px 22px; background: var(--accent); color: white; border: 0; border-radius: 10px; font-size: 1rem; }
+  form { display: flex; gap: 10px; padding: 14px; border-top: 1px solid var(--border); background: var(--canvas); }
+  input { min-width: 0; flex: 1; padding: 14px 16px; border-radius: 10px; border: 1px solid var(--border); background: var(--raised); color: var(--text); font-size: 1.05rem; }
+  form button { padding: 12px 22px; background: var(--accent-fill); color: white; border: 0; border-radius: 10px; font-size: 1rem; }
   .search-note { color: var(--muted); font-size: .88rem; line-height: 1.6; margin-top: 14px; }
   .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   @keyframes blink { 50% { opacity: 0; } }

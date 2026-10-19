@@ -14,8 +14,18 @@
     { name: 'Interests', id: 'interests' }
   ];
   let active = 'hero';
+  let darkMode = false;
+
+  function toggleTheme() {
+    darkMode = !darkMode;
+    document.documentElement.dataset.theme = darkMode ? 'dark' : 'light';
+    try { localStorage.setItem('portfolio-theme', darkMode ? 'dark' : 'light'); } catch { /* Theme still works when storage is unavailable. */ }
+  }
+
 
   onMount(() => {
+    try { darkMode = localStorage.getItem('portfolio-theme') === 'dark'; } catch { darkMode = false; }
+    document.documentElement.dataset.theme = darkMode ? 'dark' : 'light';
     const sections = tabs.map(tab => document.getElementById(tab.id));
     let frame = 0;
     const update = () => {
@@ -52,5 +62,13 @@
       {/each}
     </ul>
   </nav>
+  <div class="sidebar-actions">
+    <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed={darkMode} on:click={toggleTheme}>
+      <span class="theme-flipper" class:flipped={darkMode} aria-hidden="true">
+        <span class="theme-face theme-light">☀ <span>Light mode</span></span>
+        <span class="theme-face theme-dark">☾ <span>Dark mode</span></span>
+      </span>
+    </button>
   <a class="site-nav-cta" href={`${base}/files/resume.pdf`} target="_blank" rel="noreferrer">Resume ↗</a>
+  </div>
 </header>

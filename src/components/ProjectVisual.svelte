@@ -6,7 +6,7 @@
   {#if visual === 'fundflow'}
     <div class="visual-center">
       <div class="bars">{#each [35, 52, 68, 81, 100] as height, i}<span style={`height:${height}%;--bar-delay:${i * 70}ms`}></span>{/each}</div>
-      <strong>FUNDFLOW</strong><small>Source reports → validated holdings</small><small>5 iShares ETFs · 19,131 holdings</small>
+      <strong>FUNDFLOW</strong><small>Source reports → validated holdings</small><small>5 iShares ETFs · 19,000+ holdings</small>
     </div>
   {:else if visual === 'landfall'}
     <div class="radar-rings"></div>
