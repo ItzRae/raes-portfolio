@@ -52,6 +52,14 @@ export const experience = [
 
 export const projects = [
   {
+    visual: 'fundflow', name: 'FundFlow — Fund Holdings Pipeline', dates: 'Oct 2026',
+    desc: 'Built an end-to-end pipeline processing 19,131 holdings across 5 iShares ETFs. Preserves source reports in AWS S3 and verifies SHA-256 checksums and row-level validation before loading MongoDB Atlas. Implements batch upserts, duplicate prevention, and source-to-record traceability, with a FastAPI dashboard on Vercel for processing history, searchable holdings, and server-side filtering and pagination.',
+    metrics: ['19,131 holdings', '5 iShares ETFs', 'Source-to-record traceability'],
+    tags: ['Python', 'Playwright', 'AWS S3', 'MongoDB Atlas', 'FastAPI', 'pytest'],
+    demo_link: 'https://fund-flow-sepia.vercel.app/',
+    github_link: 'https://github.com/ItzRae/fund-flow'
+  },
+  {
     visual: 'landfall', name: 'U.S. Hurricane Landfall Detector', dates: 'Multi-state geospatial analysis',
     desc: 'Analyzes official NOAA HURDAT2 storm tracks against U.S. Census boundaries to independently detect water-to-land crossings across 18 Atlantic and Gulf coastal states. Geometric coastline intersections and linear interpolation estimate landfall locations, times, and wind speeds, with interactive maps and filters in Streamlit.',
     metrics: ['18 coastal states', '94.9% reference coverage', '488 detected landfall candidates'],
@@ -128,7 +136,7 @@ export const hobbies = 'Outside of coding, I enjoy making and drinking matcha, p
 export const suggestions: { question: string; answer: PortfolioFact }[] = [
   { question: 'What kind of work have you done?', answer: { title: 'Experience', text: 'My experience spans full-stack development at IHAI Time, volunteer development for Keelung For a Walk, data mining and teaching at Amherst College, and client-facing content strategy.', href: '#experience' } },
   { question: 'What AI systems have you built?', answer: { title: 'AI & software projects', text: 'I’m developing AllyText, a Telegram-based AI assistant with typed tools and permission checks. I built anti-brainrot for local phone detection with TensorFlow.js, and AI-assisted spreadsheet ingestion workflows at IHAI Time.', href: '#projects' } },
-  { question: 'What are your featured projects?', answer: { title: 'Selected projects', text: 'The U.S. Hurricane Landfall Detector analyzes 18 coastal states with 94.9% reference coverage and 488 detected landfall candidates. AllyText is an AI assistant in progress with 163 automated tests. anti-brainrot detects phone use locally in approximately 100ms per inference.', href: '#projects' } },
+  { question: 'What are your featured projects?', answer: { title: 'Selected projects', text: 'FundFlow processes 19,131 holdings across 5 iShares ETFs with source validation, AWS S3 storage, MongoDB Atlas, and a searchable FastAPI dashboard. The U.S. Hurricane Landfall Detector analyzes 18 coastal states with 94.9% reference coverage and 488 detected landfall candidates. AllyText is an AI assistant in progress with 163 automated tests. anti-brainrot detects phone use locally in approximately 100ms per inference.', href: '#projects' } },
   { question: 'What research have you done?', answer: { title: 'Data mining at Amherst', text: 'As a Data Mining Intern, I built a Selenium pipeline for 10,000+ tweets, applied NLP sentiment analysis to Latin American feminist hashtags, and created 15+ visualizations with pandas and seaborn.', href: '#experience' } },
   { question: 'Where did you study?', answer: { title: 'Education & training', text: 'I graduated from Amherst College in May 2025 with a B.A. in Computer Science and a 3.74 GPA. In Spring 2024 (February to July 2024), I studied abroad at Yonsei University in Seoul, South Korea through CIEE Seoul, where I studied computer vision and brain, cognition, and daily life. I completed CodePath’s Applications of AI Engineering with Honors in September 2026.', href: '#education' } },
   { question: 'How have you worked on social impact?', answer: { title: 'Community & volunteer work', text: 'I build interactive experiences for Keelung For a Walk and a volunteer management platform at IHAI Time. At The Remedy Project, I supported data and website operations for 1,000+ community members.', href: '#experience' } },

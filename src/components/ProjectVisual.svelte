@@ -3,7 +3,12 @@
 </script>
 
 <div class={`project-visual visual-${visual}`} aria-hidden="true">
-  {#if visual === 'landfall'}
+  {#if visual === 'fundflow'}
+    <div class="visual-center">
+      <div class="bars">{#each [35, 52, 68, 81, 100] as height, i}<span style={`height:${height}%;--bar-delay:${i * 70}ms`}></span>{/each}</div>
+      <strong>FUNDFLOW</strong><small>Source reports → validated holdings</small><small>5 iShares ETFs · 19,131 holdings</small>
+    </div>
+  {:else if visual === 'landfall'}
     <div class="radar-rings"></div>
     <div class="visual-center"><span class="visual-icon storm-icon">🌀</span><strong>U.S. LANDFALL DETECTOR</strong><small>18 coastal states · HURDAT2</small></div>
   {:else if visual === 'allytext'}

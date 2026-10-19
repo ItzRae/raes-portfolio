@@ -5,7 +5,7 @@
   import AskRachel from './AskRachel.svelte';
   import ProjectVisual from './ProjectVisual.svelte';
   import { reveal } from '$lib/reveal';
-  import { experience, projects, otherProjects, skillGroups, hobbies, suggestions, portfolioFacts } from '$lib/portfolio-data';
+  import { experience, projects, otherProjects, skillGroups, suggestions, portfolioFacts } from '$lib/portfolio-data';
 
   const socials = [
     { label: 'GitHub', href: 'https://github.com/ItzRae' },
