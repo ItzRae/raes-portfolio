@@ -5,7 +5,7 @@
   import AskRachel from './AskRachel.svelte';
   import ProjectVisual from './ProjectVisual.svelte';
   import { reveal } from '$lib/reveal';
-  import { experience, projects, otherProjects, skillGroups, suggestions, portfolioFacts } from '$lib/portfolio-data';
+  import { experience, projects, otherProjects, skillGroups, suggestions, portfolioFacts, activities } from '$lib/portfolio-data';
 
   const socials = [
     { label: 'GitHub', href: 'https://github.com/ItzRae' },
@@ -120,6 +120,11 @@
     <section id="skills" class="resume-section" aria-labelledby="skills-title">
       <div class="section-heading" use:reveal><h2 id="skills-title">Technical skills</h2></div>
       <dl class="skill-list" use:reveal>{#each skillGroups as group}<div><dt>{group.label}</dt><dd>{group.value}</dd></div>{/each}</dl>
+    </section>
+
+    <section id="activities" class="resume-section" aria-labelledby="skills-title">
+      <div class="section-heading" use:reveal><h2 id="skills-title">Activities</h2></div>
+      <dl class="skill-list" use:reveal>{#each activities as activity}<div><dt>{activity.label}</dt><dd>{activity.value}</dd></div>{/each}</dl>
     </section>
     <footer use:reveal><p>Rachel Lin · Amherst College ’25</p><p>Built with Svelte & TypeScript & matcha.</p></footer>
   </div>

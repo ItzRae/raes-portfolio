@@ -11,6 +11,7 @@
     { name: 'Education', id: 'education' },
     { name: 'Awards', id: 'awards' },
     { name: 'Skills', id: 'skills' },
+    { name: 'Activities', id: 'activities' },
     { name: 'Interests', id: 'interests' }
   ];
   let active = 'hero';

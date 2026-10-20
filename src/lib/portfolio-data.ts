@@ -141,6 +141,12 @@ export const skillGroups = [
   { label: 'AI & data', value: 'Prompt Engineering, LLM Workflows, RAG Pipelines, ETL, NLP, MongoDB Atlas, pandas, NumPy, Matplotlib, Seaborn, Computer Vision' },
   { label: 'Tools', value: 'Git/GitHub, VS Code, Vercel, Selenium/Playwright, PostgreSQL, Firebase, GitHub Actions/CI/CD, Docker, AWS S3, AWS OIDC, pytest' }
 ];
+
+export const activities = [
+  { label: 'Leadership', value: 'Leader of Food Justice Alliance (1 of 4 leaders, 2021 - 2025), Co-President of Chinese Students Association (2021 - 2024)' },
+  { label: 'Member', value: 'Women in Computer Science (WiCs), AI in the Liberal Arts (AILA), Asian Students Association' }
+]
+
 export const hobbies = 'Outside of coding, I enjoy making and drinking matcha, playing NYT Wordle, Sudoku, and Globle, playing chess, and reading.';
 export const suggestions: { question: string; answer: PortfolioFact }[] = [
   { question: 'What kind of work have you done?', answer: { title: 'Experience', text: 'My experience spans full-stack development at IHAI Time, volunteer development for Keelung For a Walk, data mining and teaching at Amherst College, and client-facing content strategy.', href: '#experience' } },
@@ -156,6 +162,7 @@ export const portfolioFacts: PortfolioFact[] = [
   ...projects.map(item => ({ title: item.name, text: `${item.desc} Highlights: ${item.metrics.join('; ')}.`, href: '#projects', keywords: item.tags.join(' ') })),
   ...otherProjects.map(item => ({ title: item.name, text: item.desc, href: '#more-projects', keywords: item.tags.join(' ') })),
   ...skillGroups.map(group => ({ title: group.label, text: group.value, href: '#skills', keywords: 'skills technologies stack programming' })),
+    ...activities.map(activity => ({ title: activity.label, text: activity.value, href: '#activities', keywords: 'activities member membership clubs organizations' })),
   { title: 'Outside of work', text: hobbies, href: '#interests', keywords: 'hobbies hobby interests fun free time games puzzles books tea matcha wordle sudoku globle chess reading' },
   { title: 'Education', text: suggestions[4].answer.text, href: '#education', keywords: 'study studied school college degree university graduate graduation gpa training codepath honors study abroad yonsei seoul korea south korea ciee computer vision brain cognition' },
   { title: 'Awards', text: 'Completed CodePath’s Applications of AI Engineering with Honors in September 2026. Third Place, Best Accessibility Hack at MLH CivicHacks in January 2023.', href: '#awards', keywords: 'award hackathon accessibility' },
