@@ -122,10 +122,10 @@
       <dl class="skill-list" use:reveal>{#each skillGroups as group}<div><dt>{group.label}</dt><dd>{group.value}</dd></div>{/each}</dl>
     </section>
 
-    <section id="activities" class="resume-section" aria-labelledby="skills-title">
-      <div class="section-heading" use:reveal><h2 id="skills-title">Activities</h2></div>
+    <section id="activities" class="resume-section" aria-labelledby="activities-title">
+      <div class="section-heading" use:reveal><h2 id="activities-title">Activities</h2></div>
       <dl class="skill-list" use:reveal>{#each activities as activity}<div><dt>{activity.label}</dt><dd>{activity.value}</dd></div>{/each}</dl>
     </section>
-    <footer use:reveal><p>Rachel Lin · Amherst College ’25</p><p>Built with Svelte & TypeScript & matcha.</p></footer>
+    <footer><p>Rachel Lin · Amherst College ’25</p><p>Built with Svelte & TypeScript & matcha.</p></footer>
   </div>
 </main>
