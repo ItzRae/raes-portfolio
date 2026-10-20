@@ -162,7 +162,7 @@ export const portfolioFacts: PortfolioFact[] = [
   ...projects.map(item => ({ title: item.name, text: `${item.desc} Highlights: ${item.metrics.join('; ')}.`, href: '#projects', keywords: item.tags.join(' ') })),
   ...otherProjects.map(item => ({ title: item.name, text: item.desc, href: '#more-projects', keywords: item.tags.join(' ') })),
   ...skillGroups.map(group => ({ title: group.label, text: group.value, href: '#skills', keywords: 'skills technologies stack programming' })),
-    ...activities.map(activity => ({ title: activity.label, text: activity.value, href: '#activities', keywords: 'activities member membership clubs organizations' })),
+  ...activities.map(activity => ({ title: activity.label, text: activity.value, href: '#activities', keywords: 'activities member social leadership membership clubs organizations' })),
   { title: 'Outside of work', text: hobbies, href: '#interests', keywords: 'hobbies hobby interests fun free time games puzzles books tea matcha wordle sudoku globle chess reading' },
   { title: 'Education', text: suggestions[4].answer.text, href: '#education', keywords: 'study studied school college degree university graduate graduation gpa training codepath honors study abroad yonsei seoul korea south korea ciee computer vision brain cognition' },
   { title: 'Awards', text: 'Completed CodePath’s Applications of AI Engineering with Honors in September 2026. Third Place, Best Accessibility Hack at MLH CivicHacks in January 2023.', href: '#awards', keywords: 'award hackathon accessibility' },
