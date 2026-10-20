@@ -144,3 +144,7 @@ summary span, footer { font-size: .92rem; }
 @media (max-width: 650px) { .container { padding: 0 20px; } .intro { font-size: 1.1rem; } h2 { font-size: 2.3rem; } .project-body { padding: 22px; } .entries .resume-entry + .resume-entry { padding-top: 26px; } }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 @media print { .reveal { opacity: 1; transform: none; } }
+
+@media screen and (min-width: 901px) {
+  .container { padding-inline: clamp(56px, 6vw, 96px); }
+}
