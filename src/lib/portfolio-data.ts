@@ -6,14 +6,15 @@ export const experience = [
     dates: 'Feb 2026 — Present', location: 'Remote · Keelung, Taiwan',
     bullets: [
       'Improving admin and user experiences in a Vue.js/TypeScript SPA with admin editor tools and multi-code structure support.',
-      'Building WebAR challenges, location-based interactions, completion pages with timer functionality, and multilingual map synchronization.'
+      'Building AR.js WebAR challenges, location-based interactions, completion pages with timer functionality, and multilingual map synchronization, supporting delivery of 200+ unique challenge codes.',
+      'Integrating client-side state persistence and Firebase deployment workflows.'
     ]
   },
   {
     role: 'Full Stack Developer', organization: 'IHAI Time (Initiative)', type: 'Contract',
     dates: 'Jul 2025 — Present', location: 'Remote',
     bullets: [
-      'Developing a volunteer management platform using React, FastAPI, and PostgreSQL to support shift coordination, approvals, and time-credit tracking.',
+      'Developing a volunteer management platform using React, FastAPI, and PostgreSQL to support shift coordination, approvals, and time-credit tracking, including automated token-credit issuance.',
       'Designed backend services, REST APIs, and relational data models; developing AI-assisted spreadsheet imports to standardize volunteer data and reduce manual entry. Evaluated on synthetic datasets, reducing 100-row import time by approximately 97% with 98.1% field-level accuracy.'
     ]
   },
@@ -61,9 +62,9 @@ export const experience = [
 export const projects = [
   {
     visual: 'fundflow', name: 'FundFlow — Fund Holdings Pipeline', dates: 'Oct 2026',
-    desc: 'Built an end-to-end pipeline processing 19,000+ holdings across 5 iShares ETFs. Preserves source reports in AWS S3 and verifies SHA-256 checksums and row-level validation before loading MongoDB Atlas. Implements batch upserts, duplicate prevention, and source-to-record traceability, with a FastAPI dashboard on Vercel for processing history, searchable holdings, and server-side filtering and pagination.',
+    desc: 'Built an end-to-end pipeline processing 19,000+ holdings across 5 iShares ETFs. Preserves source reports in AWS S3 and verifies SHA-256 checksums and row-level validation before loading MongoDB Atlas. Orchestrates ingestion through a manually triggered GitHub Actions workflow with AWS OIDC authentication, automated tests, and run summaries. Implements batch upserts, duplicate prevention, and source-to-record traceability, with a FastAPI dashboard on Vercel for processing history, searchable holdings, and server-side filtering and pagination.',
     metrics: ['19,000+ holdings', '5 iShares ETFs', 'Source-to-record traceability'],
-    tags: ['Python', 'Playwright', 'AWS S3', 'MongoDB Atlas', 'FastAPI', 'pytest'],
+    tags: ['Python', 'Playwright', 'AWS S3', 'MongoDB Atlas', 'FastAPI', 'pytest', 'GitHub Actions', 'AWS OIDC'],
     demo_link: 'https://fund-flow-sepia.vercel.app/',
     github_link: 'https://github.com/ItzRae/fund-flow'
   },
@@ -137,14 +138,14 @@ export const otherProjects = [
 export const skillGroups = [
   { label: 'Languages', value: 'Python, Java, JavaScript, TypeScript, SQL, HTML5/CSS3, R' },
   { label: 'Frameworks', value: 'React, Vue.js, Svelte, FastAPI, Node.js, REST APIs' },
-  { label: 'AI & data', value: 'Prompt Engineering, LLM Workflows, RAG Pipelines, ETL, NLP, MongoDB Atlas, Computer Vision' },
-  { label: 'Tools', value: 'Git/GitHub, VS Code, Vercel, Selenium/Playwright, PostgreSQL, Firebase, CI/CD, Docker, AWS S3, pytest' }
+  { label: 'AI & data', value: 'Prompt Engineering, LLM Workflows, RAG Pipelines, ETL, NLP, MongoDB Atlas, pandas, NumPy, Matplotlib, Seaborn, Computer Vision' },
+  { label: 'Tools', value: 'Git/GitHub, VS Code, Vercel, Selenium/Playwright, PostgreSQL, Firebase, GitHub Actions/CI/CD, Docker, AWS S3, AWS OIDC, pytest' }
 ];
 export const hobbies = 'Outside of coding, I enjoy making and drinking matcha, playing NYT Wordle, Sudoku, and Globle, playing chess, and reading.';
 export const suggestions: { question: string; answer: PortfolioFact }[] = [
   { question: 'What kind of work have you done?', answer: { title: 'Experience', text: 'My experience spans full-stack development at IHAI Time, volunteer development for Keelung For a Walk, data mining and teaching at Amherst College, and client-facing content strategy.', href: '#experience' } },
   { question: 'What AI systems have you built?', answer: { title: 'AI & software projects', text: 'I’m developing AllyText, a Telegram-based AI assistant with typed tools and permission checks. I built anti-brainrot for local phone detection with TensorFlow.js, and am developing AI-assisted spreadsheet imports at IHAI Time, evaluated on synthetic datasets with approximately 97% faster 100-row imports and 98.1% field-level accuracy.', href: '#projects' } },
-  { question: 'What are your featured projects?', answer: { title: 'Selected projects', text: 'FundFlow processes 19,000+ holdings across 5 iShares ETFs with source validation, AWS S3 storage, MongoDB Atlas, and a searchable FastAPI dashboard. The U.S. Hurricane Landfall Detector analyzes 18 coastal states with 94.9% reference coverage and 488 detected landfall candidates. AllyText is an AI assistant in progress with 163 automated tests. anti-brainrot detects phone use locally in approximately 100ms per inference.', href: '#projects' } },
+  { question: 'What are your featured projects?', answer: { title: 'Selected projects', text: 'FundFlow processes 19,000+ holdings across 5 iShares ETFs with source validation, AWS S3 storage, MongoDB Atlas, GitHub Actions ingestion with AWS OIDC authentication, and a searchable FastAPI dashboard. The U.S. Hurricane Landfall Detector analyzes 18 coastal states with 94.9% reference coverage and 488 detected landfall candidates. AllyText is an AI assistant in progress with 163 automated tests. anti-brainrot detects phone use locally in approximately 100ms per inference.', href: '#projects' } },
   { question: 'What research have you done?', answer: { title: 'Research at Amherst', text: 'As a Data Mining Intern, I collected 10,000+ tweets with Selenium, generated sentiment labels using BETO (Spanish BERT), compared Logistic Regression and Random Forest classifiers, and created 15+ visualizations. During my Research Fellowship and Gregory Call internship, I built a Python simulation of Starbucks ordering across three channels, modeling 25 million customer entries across 25 queue-threshold scenarios.', href: '#experience' } },
   { question: 'Where did you study?', answer: { title: 'Education & training', text: 'I graduated from Amherst College in May 2025 with a B.A. in Computer Science and a 3.74 GPA. In Spring 2024 (February to July 2024), I studied abroad at Yonsei University in Seoul, South Korea through CIEE Seoul, where I studied computer vision and brain, cognition, and daily life. I completed CodePath’s Applications of AI Engineering with Honors in September 2026.', href: '#education' } },
   { question: 'How have you worked on social impact?', answer: { title: 'Community & volunteer work', text: 'I build interactive experiences for Keelung For a Walk and a volunteer management platform at IHAI Time. At The Remedy Project, I supported data and website operations for 1,000+ community members.', href: '#experience' } },

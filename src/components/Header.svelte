@@ -63,11 +63,12 @@
     </ul>
   </nav>
   <div class="sidebar-actions">
-    <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed={darkMode} on:click={toggleTheme}>
-      <span class="theme-flipper" class:flipped={darkMode} aria-hidden="true">
-        <span class="theme-face theme-light">☀ <span>Light mode</span></span>
-        <span class="theme-face theme-dark">☾ <span>Dark mode</span></span>
+    <button class="theme-toggle" class:is-dark={darkMode} type="button" role="switch" aria-label="Dark mode" aria-checked={darkMode} on:click={toggleTheme}>
+      <span class="theme-track" aria-hidden="true">
+        <span class="theme-sun">☀</span><span class="theme-moon">☾</span>
+        <span class="theme-thumb"></span>
       </span>
+      <span class="theme-label">{darkMode ? 'Dark mode' : 'Light mode'}</span>
     </button>
   <a class="site-nav-cta" href={`${base}/files/resume.pdf`} target="_blank" rel="noreferrer">Resume ↗</a>
   </div>
